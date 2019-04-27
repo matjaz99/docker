@@ -4,7 +4,7 @@
     "title": "DTools",
     "description": "Developer Tools",
     "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/dtools_logo.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/dtools_logo.png",
     "image": "matjaz99/dtools:5.4.1",
     "ports": [
       "7070:8080/tcp"
@@ -27,7 +27,7 @@
     "title": "httpd",
     "description": "Apache httpd",
     "categories": ["http"],
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/apache_logo.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/apache_logo.png",
     "image": "httpd:2.4",
     "ports": [
       "7070:8080/tcp"
@@ -46,7 +46,7 @@
     "description": "Authentication server",
     "categories": ["webserver", "authentication"],
     "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/keycloak_logo.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/keycloak_logo.png",
     "repository": {
       "url": "https://gitlab.iskratel.si/it_mano/ob_docker",
       "stackfile": "docker-compose-keycloak.yml"
@@ -58,7 +58,7 @@
     "description": "Docker Baton",
     "categories": ["webserver", "authentication"],
     "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/whale_icon.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/whale_icon.png",
     "repository": {
       "url": "https://gitlab.iskratel.si/it_docker/it_docker_baton",
       "stackfile": "scripts/base/master-agent-stack.yml"
@@ -70,7 +70,7 @@
     "description": "OpenBaton orchestrator (with Keycloak)",
     "categories": ["orchestrator", "cloud"],
     "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/openbaton_logo.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/openbaton_logo.png",
     "repository": {
       "url": "https://gitlab.iskratel.si/it_mano/ob_docker",
       "stackfile": "docker-compose-ob.yml"
@@ -82,7 +82,7 @@
     "description": "Prometheus, Node-exporter and Grafana",
     "categories": ["monitoring"],
     "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/prometheus_logo.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/prometheus_logo.png",
     "repository": {
       "url": "https://github.com/matjaz99/docker",
       "stackfile": "prometheus/compose-prometheus.yml"
@@ -94,7 +94,7 @@
     "description": "Developer Tools",
     "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
     "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/templates/icons/dtools_logo.png",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/dtools_logo.png",
     "repository": {
       "url": "https://github.com/matjaz99/docker",
       "stackfile": "dtools/compose-dtools.yml"
