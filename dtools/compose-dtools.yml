@@ -14,8 +14,8 @@ services:
     networks:
       - dtools_network
     volumes:
-      - /opt/monis/dtools/config:/usr/local/tomcat/config
-      - /opt/monis/dtools/log:/usr/local/tomcat/log
+      - ./config:/usr/local/tomcat/config
+      - ./log:/usr/local/tomcat/log
     deploy:
       mode: replicated
       replicas: 1
