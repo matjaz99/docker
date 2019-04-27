@@ -1,0 +1,234 @@
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'monis'
+
+rule_files:
+  - alert_rules.yml
+  - recording_rules.yml
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - alertmanager:9093
+  - dns_sd_configs:
+    - names:
+      - 'tasks.alertmanager'
+      type: 'A'
+      port: 9093
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'alertmanager'
+    static_configs:
+      - targets: ['alertmanager:9093']
+
+  - job_name: 'node-exporter-dns'
+    dns_sd_configs:
+    - names:
+      - 'tasks.node-exporter'
+      type: 'A'
+      port: 9100
+
+  - job_name: 'node-exporter-static'
+    static_configs:
+      - targets:
+        - localhost:9100
+        - 192.168.1.99:9100
+    file_sd_configs:
+    - files:
+      - /prometheus_config/targets/nodes.json
+      refresh_interval: 5m
+
+  - job_name: 'pushgateway'
+    static_configs:
+      - targets:
+        - pushgateway:9091
+
+  - job_name: 'docker'
+    file_sd_configs:
+    - files:
+      - /prometheus_config/targets/docker_nodes.yml
+      refresh_interval: 10m
+
+  - job_name: 'cadvisor'
+    dns_sd_configs:
+    - names:
+      - 'tasks.cadvisor'
+      type: 'A'
+      port: 8080
+
+  - job_name: 'grafana'
+    dns_sd_configs:
+    - names:
+      - 'tasks.grafana'
+      type: 'A'
+      port: 3000
+    metrics_path: /metrics
+
+  - job_name: 'rabbitmq'
+     #scrape_interval: 10s
+    static_configs:
+      - targets: ['rabbitmq-exporter:9419']
+
+  - job_name: 'metricsExporter'
+    static_configs:
+      - targets: ['me_metricsExporter:8091']
+    metrics_path: /metadata/metrics
+
+  - job_name: 'metrics-springboot'
+    static_configs:
+      - targets: ['metricsSB:8080']
+    metrics_path: /v1/actuator/prometheus
+
+  - job_name: 'pmon'
+    metrics_path: '/pmon/metrics'
+    scheme: http
+    scrape_interval: 60s
+    static_configs:
+      - targets: ['192.168.1.99:8084']
+
+  - job_name: 'omp3p'
+    static_configs:
+      - targets: ['192.168.1.205:8083']
+    metrics_path: /actuator/prometheus
+    scrape_interval: 60s
+
+  - job_name: 'openbaton'
+    static_configs:
+      - targets: ['172.29.254.66:8080', '172.29.100.100:8080']
+    metrics_path: /prometheus
+
+  - job_name: 'dtools'
+    static_configs:
+      - targets: ['192.168.1.205:8080','172.30.19.6:8080']
+        labels:
+          mylabel: 'my-test-label'
+          yourLabel: 'your-test-label'
+    dns_sd_configs:
+    - names:
+      - 'tasks.dtools'
+      type: 'A'
+      port: 9009
+    metrics_path: /DTools/api/prometheus/metrics
+    scrape_interval: 15s
+    
+
+  - job_name: 'dockerbaton'
+    static_configs:
+      - targets: ['172.29.254.66:18080']
+    metrics_path: /metrics
+
+  - job_name: 'snmp-exporter'
+    static_configs:
+      - targets:
+        - 192.168.1.1  # SNMP device at home (Mikrotik).
+        - 192.168.133.3 # ES3526X-ZZ - Igor
+        - 192.168.140.4 # ES3528M-PoE - Igor
+        - 172.18.216.216 # Cisco-C3750G-24TS-1U - Igor
+        - 172.18.216.215 # Cisco-C3750-48TS - Igor
+        - 192.168.1.222 # ne obstaja
+    metrics_path: /snmp
+    scrape_interval: 60s
+    params:
+      module: [if_mib]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116  # The SNMP exporter's real hostname:port.
+
+  - job_name: 'blackbox-http'
+    metrics_path: /probe
+    scrape_interval: 60s
+    params:
+      module: [http_2xx]  # Look for a HTTP 200 response.
+    static_configs:
+      - targets:
+        - http://prometheus.io    # Target to probe with http.
+        - https://prometheus.io   # Target to probe with https.
+        - https://gitlab.iskratel.si
+        - http://itcloud.iskratel.si
+        - http://172.18.215.69/mns/ # fmslin3
+        - 192.168.1.241:8080
+        - 172.29.254.66:8080
+        - 172.29.254.66:9090
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115  # The blackbox exporter's real hostname:port.
+
+  - job_name: 'blackbox-icmp'
+    metrics_path: /probe
+    scrape_interval: 60s
+    params:
+      module: [icmp_ipv4]
+    static_configs:
+      - targets:
+        - localhost
+        - 192.168.1.241
+        - 172.29.254.66
+        - gitlab.iskratel.si
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115  # The blackbox exporter's real hostname:port.
+
+  - job_name: 'blackbox-ssh'
+    metrics_path: /probe
+    scrape_interval: 60s
+    params:
+      module: [ssh_banner]
+    static_configs:
+      - targets:
+        - localhost
+        - 192.168.1.241:22
+        - 172.29.254.66:22
+        - gitlab.iskratel.si:22
+    relabel_configs:
+      # Ensure port is 22, pass as URL parameter
+      - source_labels: [__address__]
+        regex: (.*)(:.*)?
+        replacement: ${1}:22
+        target_label: __param_target
+      # Make instance label the target
+      - source_labels: [__param_target]
+        target_label: instance
+      # Actually talk to the blackbox exporter though
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  - job_name: 'blackbox-dns'
+    metrics_path: /probe
+    scrape_interval: 60s
+    params:
+      module: [dns_rp_mx]
+    static_configs:
+      - targets:
+        - 8.8.4.4  # Test various public DNS providers are working.
+        - 8.8.8.8
+        - 1.0.0.1
+        - 1.1.1.1
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
