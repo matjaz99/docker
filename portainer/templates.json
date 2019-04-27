@@ -1,0 +1,97 @@
+[
+  {
+    "type": 1,
+    "title": "DTools",
+    "description": "Developer Tools",
+    "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/dtools_logo.png",
+    "image": "matjaz99/dtools:5.4.1",
+    "ports": [
+      "7070:8080/tcp"
+    ],
+    "volumes": [
+      { 
+        "container": "/usr/local/tomcat/config",
+        "bind": "/opt/monis/dtools/config",
+        "readonly": false
+      },
+      {
+        "container": "/usr/local/tomcat/log",
+        "bind": "/opt/monis/dtools/log",
+        "readonly": false
+      }
+    ]
+  },
+  {
+    "type": 2,
+    "title": "IT Keycloak",
+    "description": "Authentication server",
+    "categories": ["webserver", "authentication"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/keycloak_logo.png",
+    "repository": {
+      "url": "https://gitlab.iskratel.si/it_mano/ob_docker",
+      "stackfile": "docker-compose-keycloak.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "IT Docker Baton",
+    "description": "Docker Baton",
+    "categories": ["webserver", "authentication"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/whale_icon.png",
+    "repository": {
+      "url": "https://gitlab.iskratel.si/it_docker/it_docker_baton",
+      "stackfile": "scripts/base/master-agent-stack.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "IT OpenBaton",
+    "description": "Authentication server",
+    "categories": ["webserver", "authentication"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/openbaton_logo.png",
+    "repository": {
+      "url": "https://gitlab.iskratel.si/it_mano/ob_docker",
+      "stackfile": "docker-compose-ob-only.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "IT OpenBaton with Keycloak",
+    "description": "Authentication server",
+    "categories": ["webserver", "authentication"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/openbaton_logo.png",
+    "repository": {
+      "url": "https://gitlab.iskratel.si/it_mano/ob_docker",
+      "stackfile": "docker-compose-ob.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "Prometheus Basic",
+    "description": "Prometheus, Node-exporter and Grafana",
+    "categories": ["monitoring"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/prometheus_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/MyTestProjects",
+      "stackfile": "static-files/prometheus/compose-prometheus.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "DTools",
+    "description": "Developer Tools",
+    "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/MyTestProjects/raw/master/static-files/portainer/templates/icons/dtools_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/MyTestProjects",
+      "stackfile": "static-files/dtools/compose-dtools.yml"
+    }
+  }
+]

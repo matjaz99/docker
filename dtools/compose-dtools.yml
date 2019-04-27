@@ -1,0 +1,21 @@
+version: '3.6'
+
+networks:
+  dtools_network:
+    driver: overlay
+    attachable: true
+
+services:
+
+  dtools:
+    image: matjaz99/dtools:5.4.1
+    ports:
+      - 7070:8080
+    networks:
+      - dtools_network
+    volumes:
+      - /opt/monis/dtools/config:/usr/local/tomcat/config
+      - /opt/monis/dtools/log:/usr/local/tomcat/log
+    deploy:
+      mode: replicated
+      replicas: 1
