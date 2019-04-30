@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sshClients>
+    <sshClient>
+        <favorite>true</favorite>
+        <hostname>localhost</hostname>
+        <password>root</password>
+        <port>22</port>
+        <username>root</username>
+    </sshClient>
+</sshClients>

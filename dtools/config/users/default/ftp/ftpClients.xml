@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ftpClients>
+    <ftpClient>
+        <favorite>true</favorite>
+        <hostname>localhost</hostname>
+        <password>ftpuser</password>
+        <port>21</port>
+        <protocol>FTP</protocol>
+        <username>ftpuser</username>
+    </ftpClient>
+    <ftpClient>
+        <favorite>false</favorite>
+        <hostname>localhost</hostname>
+        <password>ftpuser</password>
+        <port>22</port>
+        <protocol>SFTP</protocol>
+        <username>ftpuser</username>
+    </ftpClient>
+    <ftpClient>
+        <favorite>false</favorite>
+        <hostname>tt</hostname>
+        <password>ee</password>
+        <port>21</port>
+        <protocol>FTP</protocol>
+        <username>rr</username>
+    </ftpClient>
+</ftpClients>

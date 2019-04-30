@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<todos>
+    <todo>
+        <completed>true</completed>
+        <created>2015-05-25T20:34:11.792+02:00</created>
+        <deadline>2015-10-04T23:00:00+02:00</deadline>
+        <description></description>
+        <title>Meeting with John</title>
+    </todo>
+    <todo>
+        <completed>false</completed>
+        <created>2015-05-30T10:11:50.742+02:00</created>
+        <deadline>2015-09-23T11:00:00+02:00</deadline>
+        <description></description>
+        <title>Read a book</title>
+    </todo>
+</todos>

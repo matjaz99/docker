@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ftpTransfers>
+    <transfer>
+        <direction>Upload</direction>
+        <from>/home/user/data/AAA.txt</from>
+        <to>/ftpuser/AAA.txt</to>
+    </transfer>
+    <transfer>
+        <direction>Download</direction>
+        <from>/ftpuser/AAA.txt</from>
+        <to>/home/user/data/BBB.txt</to>
+    </transfer>
+</ftpTransfers>
