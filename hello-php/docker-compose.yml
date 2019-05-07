@@ -7,7 +7,7 @@ networks:
 
 services:
   web:
-    image: gitlab.iskratel.si:4567/mcrk/hello-php/master:1.0.0
+    image: gitlab.iskratel.si:4567/mcrk/hello-php/master:latest
     networks:
       - webnet
     ports:
