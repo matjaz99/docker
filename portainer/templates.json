@@ -42,6 +42,18 @@
   },
   {
     "type": 2,
+    "title": "Hello-PHP",
+    "description": "Simple PHP project",
+    "categories": ["webserver", "php"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/application_icon.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/docker",
+      "stackfile": "hello-php/docker-compose.yml"
+    }
+  },
+  {
+    "type": 2,
     "title": "IT Keycloak",
     "description": "Authentication server",
     "categories": ["webserver", "authentication"],
