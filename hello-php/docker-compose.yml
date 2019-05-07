@@ -1,4 +1,4 @@
-version: "3.6"
+version: 3.6
 
 networks:
   webnet:
@@ -7,16 +7,20 @@ networks:
 
 services:
   web:
-    image: gitlab.iskratel.si:4567/mcrk/hello-php/master:latest
+    image: gitlab.iskratel.si:4567/mcrk/hello-php/master:1.0.0
     networks:
       - webnet
     ports:
-      - "8888:80"
+      - 8888:80
     deploy:
-      replicas: 1
+      replicas: 3
       resources:
         limits:
-          cpus: "0.1"
+          cpus: 0.1
           memory: 50M
       restart_policy:
         condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 30s
+        order: stop-first
