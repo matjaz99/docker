@@ -23,5 +23,5 @@ services:
         condition: on-failure
       update_config:
         parallelism: 1
-        delay: 30s
+        delay: 15s
         order: stop-first
