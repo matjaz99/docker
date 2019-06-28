@@ -1,0 +1,303 @@
+version: '3.6'
+
+# prometheus, node-exporter, blackbox-exporter, snmp-exporter, cadvisor, pushgateway, alertmanager, unsee, grafana+postgres, visualizer, alertmonitor
+
+networks:
+  monitoring-network:
+    driver: overlay
+    attachable: true
+
+configs:
+  prometheus_config:
+    file: ./prometheus_config/prometheus.yml
+  alert_rules:
+    file: ./prometheus_config/alert_rules/alert_rules.yml
+  recording_rules:
+    file: ./prometheus_config/recording_rules/recording_rules.yml
+  prometheus_targets_docker:
+    file: ./prometheus_config/targets/docker_nodes.yml
+  prometheus_targets_nodes:
+    file: ./prometheus_config/targets/nodes.json
+  node_exporter_metrics:
+    file: ./node_exporter_file_collector/server_metadata_metrics.prom
+  alertmanager_config:
+    file: ./alertmanager_config/alertmanager.yml
+  blackbox_config:
+    file: ./blackbox_config/blackbox.yml
+  snmp_exporter_config:
+    file: ./snmp_exporter_config/snmp.yml
+  grafana_prometheus_datasource:
+    file: ./grafana/prometheus-datasource.yml
+  grafana_dashboard_location:
+    file: ./grafana/dashboards-location.yml
+
+secrets:
+  postgres-passwd:
+    file: ./secrets/postgres-passwd.conf
+  grafana-db:
+    file: ./secrets/grafana-db.conf
+
+volumes:
+  alertmanager_storage:
+    driver: local
+  postgres_storage:
+    driver: local
+  prometheus_storage:
+    driver: local
+
+services:
+
+  node-exporter:
+    image: stefanprodan/swarmprom-node-exporter:${SWARMPROM_NODE_EXPORTER:-v0.16.0}
+    networks:
+      - monitoring-network
+    ports:
+      - 9100:9100
+    environment:
+      - NODE_ID={{.Node.ID}}
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - /etc/hostname:/etc/nodename
+      # comment this on alpine linux:
+      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+    command:
+      - '--path.sysfs=/host/sys'
+      - '--path.procfs=/host/proc'
+      - '--collector.textfile.directory=/etc/node-exporter/'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+      # no collectors are explicitely enabled here, because the defaults are sufficient
+      - '--no-collector.ipvs'
+      - '--collector.systemd'
+      - '--collector.systemd.unit-whitelist=(docker.service|sshd.service|rsyslog.service|crond.service|firewalld.service|iptables.service|ntpd.service|syslog.service)'
+    deploy:
+      mode: global
+
+  blackbox-exporter:
+    #image: prom/blackbox-exporter:v0.13.0
+    image: prom/blackbox-exporter:v0.14.0
+    networks:
+      - monitoring-network
+      #- host
+    ports:
+      - 9115:9115
+    #dns: 8.8.8.8
+    #volumes:
+    #  - "./config:/config"
+    command:
+      - '--config.file=/etc/blackbox_exporter/blackbox.yml'
+    configs:
+      - source: blackbox_config
+        target: /etc/blackbox_exporter/blackbox.yml
+    user: root
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+
+  snmp-exporter:
+    #image: prom/snmp-exporter:v0.13.0
+    image: prom/snmp-exporter:v0.15.0
+    networks:
+      - monitoring-network
+    ports:
+      - 9116:9116
+      - 116:116/udp
+    #volumes:
+    #  - /opt/monitoring/snmp-exporter:/etc/snmp_exporter
+    configs:
+      - source: snmp_exporter_config
+        target: /etc/snmp_exporter/snmp.yml
+    command:
+      - '--config.file=/etc/snmp_exporter/snmp.yml'
+    user: root
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+
+  pushgateway:
+    #image: prom/pushgateway:v0.7.0
+    image: prom/pushgateway:v0.8.0
+    ports:
+      - 9091:9091
+    networks:
+      - monitoring-network
+    deploy:
+      replicas: 1
+
+  prometheus:
+    #image: prom/prometheus:v2.5.0
+    image: prom/prometheus:v2.8.1
+    ports:
+      - 9090:9090
+    networks:
+      - monitoring-network
+    command:
+      - '--config.file=/prometheus_config/prometheus.yml'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.path=/prometheus_data'
+      - '--storage.tsdb.retention=7d'
+    volumes:
+      - prometheus_storage:/prometheus_data
+    configs:
+      - source: prometheus_config
+        target: /prometheus_config/prometheus.yml
+      - source: alert_rules
+        target: /prometheus_config/alert_rules.yml
+      - source: prometheus_targets_docker
+        target: /prometheus_config/targets/docker_nodes.yml
+      - source: prometheus_targets_nodes
+        target: /prometheus_config/targets/nodes.json
+      - source: recording_rules
+        target: /prometheus_config/recording_rules.yml
+    user: root
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+        - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 265M
+        reservations:
+          cpus: '0.25'
+          memory: 64M
+      labels:
+        com.example.description: "This label will appear on the web service"
+
+  cadvisor:
+    image: google/cadvisor:v0.32.0
+    networks:
+      - monitoring-network
+    ports:
+      - 9080:8080
+    command: -logtostderr -docker_only
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    deploy:
+      mode: global
+
+  alertmanager:
+    #image: prom/alertmanager:v0.15.3
+    image: prom/alertmanager:v0.16.2
+    ports:
+      - 9093:9093
+    networks:
+      - monitoring-network
+    command:
+      - '--config.file=/alertmanager_config/alertmanager.yml'
+      #- '--web.external-url=http://192.168.1.115:9093/'
+      - '--web.external-url=http://$HOSTNAME:9093/'
+      - '--cluster.listen-address=$HOSTNAME:9094'
+    volumes:
+      - alertmanager_storage:/alertmanager
+    configs:
+      - source: alertmanager_config
+        target: /alertmanager_config/alertmanager.yml
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  unsee:
+    image: cloudflare/unsee:v0.9.2
+    ports:
+      - 9094:8080
+    networks:
+      - monitoring-network
+    environment:
+      - "ALERTMANAGER_URIS=default:http://alertmanager:9093"
+      #- "PORT=9094"
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  grafana:
+    #image: grafana/grafana:5.4.2
+    image: grafana/grafana:6.1.3
+    networks:
+      - monitoring-network
+    ports:
+      - 3000:3000
+    environment:
+      - GF_DATABASE_HOST=postgres:5432
+      - GF_DATABASE_TYPE=postgres
+      - GF_DATABASE_NAME=postgres
+      - GF_DATABASE_USER=postgres
+      - GF_DATABASE_PASSWORD__FILE=/run/secrets/postgres-passwd
+      - GF_SESSION_PROVIDER=postgres
+      - GF_SESSION_PROVIDER_CONFIG__FILE=/run/secrets/grafana-db
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource,grafana-piechart-panel,corpglory-progresslist-panel,camptocamp-prometheus-alertmanager-datasource
+    volumes:
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    secrets:
+      - grafana-db
+      - postgres-passwd
+    configs:
+      - source: grafana_prometheus_datasource
+        target: /etc/grafana/provisioning/datasources/prometheus-datasource.yml
+      - source: grafana_dashboard_location
+        target: /etc/grafana/provisioning/dashboards/dashboards-location.yml
+      #- source: grafana_dashboard
+      #  target: /var/lib/grafana/dashboards/Directory_monitor.json
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  postgres:
+    image: postgres:11
+    networks:
+      - monitoring-network
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
+      - PGDATA=/pg_data
+    secrets:
+      - postgres-passwd
+    volumes:
+      - postgres_storage:/pg_data
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+        - node.labels.db-type == postgresql
+      resources:
+        limits:
+          memory: 1024M
+
+  visualizer:
+    image: dockersamples/visualizer
+    networks:
+      - monitoring-network
+    ports:
+      - 5050:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  alertmonitor:
+    image: matjaz99/alertmonitor:1.0.0
+    ports:
+      - 7070:8080
+    networks:
+      - monitoring-network
+    deploy:
+      mode: replicated
+      replicas: 1

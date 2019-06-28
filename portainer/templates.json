@@ -6,6 +6,17 @@
     "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
     "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/dtools_logo.png",
     "image": "matjaz99/dtools:5.4.1",
+    "env": [
+      {
+        "name": "OPTION_A",
+        "label": "OPTON_A",
+        "set": "yes"
+      },
+      {
+        "name": "OPTION_B",
+        "label": "OPTION_B"
+      }
+    ],
     "ports": [
       "7070:8080/tcp"
     ],
@@ -21,6 +32,18 @@
         "readonly": false
       }
     ]
+  },
+  {
+    "type": 2,
+    "title": "DTools",
+    "description": "Developer Tools",
+    "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/dtools_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/docker",
+      "stackfile": "dtools/compose-dtools.yml"
+    }
   },
   {
     "type": 1,
@@ -50,6 +73,42 @@
     "repository": {
       "url": "https://github.com/matjaz99/docker",
       "stackfile": "hello-php/docker-compose.yml"
+    },
+    "env": [
+      {
+        "name": "AAA",
+        "label": "aaa",
+        "description": "this is description A"
+      },
+      {
+        "name": "BBB",
+        "label": "bbb",
+        "description": "this is description B"
+      }
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Traefik Basic",
+    "description": "Allow http or https connections",
+    "categories": ["reverse proxy", "load balancer"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/traefik_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/docker",
+      "stackfile": "traefik/docker-compose-traefik-basic.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "Traefik HTTPS",
+    "description": "Redirect http to https",
+    "categories": ["reverse proxy", "load balancer"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/traefik_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/docker",
+      "stackfile": "traefik/docker-compose-traefik-https.yml"
     }
   },
   {
@@ -91,25 +150,13 @@
   {
     "type": 2,
     "title": "Prometheus Basic",
-    "description": "Prometheus, Node-exporter and Grafana",
+    "description": "Prometheus, Node-exporter, cAdvisor and Grafana",
     "categories": ["monitoring"],
     "platform": "linux",
     "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/prometheus_logo.png",
     "repository": {
       "url": "https://github.com/matjaz99/docker",
-      "stackfile": "prometheus/compose-prometheus.yml"
-    }
-  },
-  {
-    "type": 2,
-    "title": "DTools",
-    "description": "Developer Tools",
-    "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
-    "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/dtools_logo.png",
-    "repository": {
-      "url": "https://github.com/matjaz99/docker",
-      "stackfile": "dtools/compose-dtools.yml"
+      "stackfile": "prometheus/compose-prometheus-basic.yml"
     }
   },
   {

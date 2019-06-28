@@ -18,8 +18,7 @@ configs:
 services:
 
   node-exporter:
-    #image: prom/node-exporter:v0.17.0
-    image: stefanprodan/swarmprom-node-exporter:v0.15.2
+    image: stefanprodan/swarmprom-node-exporter:v0.16.0
     networks:
       - prometheus-network
     ports:
@@ -42,7 +41,7 @@ services:
       mode: global
 
   prometheus:
-    image: prom/prometheus:v2.5.0
+    image: prom/prometheus:v2.10.0
     ports:
       - 9090:9090
     networks:
@@ -64,7 +63,7 @@ services:
       replicas: 1
 
   grafana:
-    image: grafana/grafana:5.4.2
+    image: grafana/grafana:6.2.5
     networks:
       - prometheus-network
     ports:
@@ -75,3 +74,18 @@ services:
       mode: replicated
       replicas: 1
 
+  cadvisor:
+    image: google/cadvisor:v0.32.0
+    networks:
+      - prometheus-network
+    ports:
+      - 9080:8080
+    command: -logtostderr -docker_only
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    deploy:
+      mode: global
