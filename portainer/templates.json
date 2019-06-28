@@ -2,7 +2,9 @@
   {
     "type": 1,
     "title": "DTools",
+    "name": "dtools",
     "description": "Developer Tools",
+    "note": "Tools for testing and simulating",
     "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
     "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/dtools_logo.png",
     "image": "matjaz99/dtools:5.4.1",
@@ -36,6 +38,7 @@
   {
     "type": 2,
     "title": "DTools",
+    "name": "dtools",
     "description": "Developer Tools",
     "categories": ["ssh", "snmp", "monitoring", "alert manager",  "docker"],
     "platform": "linux",
@@ -48,6 +51,7 @@
   {
     "type": 1,
     "title": "httpd",
+    "name": "httpd",
     "description": "Apache httpd",
     "categories": ["http"],
     "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/apache_logo.png",
@@ -66,6 +70,7 @@
   {
     "type": 2,
     "title": "Hello-PHP",
+    "name": "hello-php",
     "description": "Simple PHP project",
     "categories": ["webserver", "php"],
     "platform": "linux",
@@ -90,6 +95,7 @@
   {
     "type": 2,
     "title": "Traefik Basic",
+    "name": "traefik",
     "description": "Allow http or https connections",
     "categories": ["reverse proxy", "load balancer"],
     "platform": "linux",
@@ -102,6 +108,7 @@
   {
     "type": 2,
     "title": "Traefik HTTPS",
+    "name": "traefik",
     "description": "Redirect http to https",
     "categories": ["reverse proxy", "load balancer"],
     "platform": "linux",
@@ -114,6 +121,7 @@
   {
     "type": 2,
     "title": "IT Keycloak",
+    "name": "keycloak",
     "description": "Authentication server",
     "categories": ["webserver", "authentication"],
     "platform": "linux",
@@ -126,6 +134,7 @@
   {
     "type": 2,
     "title": "IT DockerBaton",
+    "name": "ob",
     "description": "Docker Baton",
     "categories": ["webserver", "authentication"],
     "platform": "linux",
@@ -138,6 +147,7 @@
   {
     "type": 2,
     "title": "IT OpenBaton",
+    "name": "ob",
     "description": "OpenBaton orchestrator (with Keycloak)",
     "categories": ["orchestrator", "cloud"],
     "platform": "linux",
@@ -150,6 +160,7 @@
   {
     "type": 2,
     "title": "Prometheus Basic",
+    "name": "prom",
     "description": "Prometheus, Node-exporter, cAdvisor and Grafana",
     "categories": ["monitoring"],
     "platform": "linux",

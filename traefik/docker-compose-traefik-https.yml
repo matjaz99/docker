@@ -15,35 +15,35 @@ services:
 
   traefik:
     image: traefik:1.7.12-alpine
-      command:
-        - "--api"
-        - "--entrypoints=Name:http Address::80 Redirect.EntryPoint:https"
-        - "--entryPoints=Name:https Address::443 TLS:/run/secrets/traefik-crt,/run/secrets/traefik-key"
-        - "--defaultentrypoints=https,http"
-        - "--logLevel=DEBUG"
-        - "--accessLog"
-        - "--docker"
-        - "--docker.swarmMode"
-        - "--docker.domain=swarm.cloud.local"
-        - "--docker.watch"
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-      secrets:
-        - traefik-crt
-        - traefik-key
-      networks:
-        - net
-      ports:
-        - 443:443
-        - 80:80
-        - 8085:8080
-      deploy:
-        mode: global
-        placement:
-          constraints:
-            - node.role == manager
-        update_config:
-          parallelism: 1
-          delay: 10s
-        restart_policy:
-          condition: on-failure
+    command:
+      - "--api"
+      - "--entrypoints=Name:http Address::80 Redirect.EntryPoint:https"
+      - "--entryPoints=Name:https Address::443 TLS:/run/secrets/traefik-crt,/run/secrets/traefik-key"
+      - "--defaultentrypoints=https,http"
+      - "--logLevel=DEBUG"
+      - "--accessLog"
+      - "--docker"
+      - "--docker.swarmMode"
+      - "--docker.domain=swarm.cloud.local"
+      - "--docker.watch"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    secrets:
+      - traefik-crt
+      - traefik-key
+    networks:
+      - net
+    ports:
+      - 443:443
+      - 80:80
+      - 8085:8080
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role == manager
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
