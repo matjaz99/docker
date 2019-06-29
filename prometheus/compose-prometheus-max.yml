@@ -167,6 +167,10 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+        order: start-first
       resources:
         limits:
           cpus: "0.5"
@@ -194,8 +198,7 @@ services:
       mode: global
 
   alertmanager:
-    #image: prom/alertmanager:v0.15.3
-    image: prom/alertmanager:${ALERTMANAGER:-v0.16.2}
+    image: prom/alertmanager:${ALERTMANAGER:-v0.15.3}
     ports:
       - 9093:9093
     networks:
@@ -228,7 +231,6 @@ services:
       replicas: 1
 
   grafana:
-    #image: grafana/grafana:5.4.2
     image: grafana/grafana:${GRAFANA:-6.1.3}
     networks:
       - monitoring-network
@@ -260,7 +262,7 @@ services:
       replicas: 1
 
   postgres:
-    image: postgres:11
+    image: postgres:11.3  # version 11.4 is not compatible with Grafana!
     networks:
       - monitoring-network
     environment:
