@@ -63,6 +63,20 @@
     }
   },
   {
+    "type": 2,
+    "title": "Prometheus Max",
+    "name": "prom",
+    "description": "Prometheus, Node-exporter, cAdvisor and Grafana",
+    "note": "<h3>Monitoring with Prometheus</h3><br><p>This stack will deploy: Prometheus, node-exporter, blackbox-exporter, snmp-exporter, cAdvisor, pushgateway, alertmanager, alertmonitor, Grafana, visualizer, unsee and PostgreSQL (for grafana)</p>",
+    "categories": ["monitoring"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/prometheus_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/docker",
+      "stackfile": "prometheus/compose-prometheus-max.yml"
+    }
+  },
+  {
     "type": 1,
     "title": "httpd",
     "name": "httpd",
