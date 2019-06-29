@@ -1,0 +1,1031 @@
+# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 3.6629e-05
+go_gc_duration_seconds{quantile="0.25"} 5.4504e-05
+go_gc_duration_seconds{quantile="0.5"} 8.4452e-05
+go_gc_duration_seconds{quantile="0.75"} 0.000116822
+go_gc_duration_seconds{quantile="1"} 0.080841276
+go_gc_duration_seconds_sum 0.603840063
+go_gc_duration_seconds_count 379
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 142
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.11.1"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 7.2537248e+07
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 1.1073624896e+10
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.928884e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 3.3257986e+07
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 0.0008828472176418613
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 9.60512e+06
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 7.2537248e+07
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 1.7993728e+08
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 8.515584e+07
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 522159
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 1.4364672e+08
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 2.6509312e+08
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.5474683889646208e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 0
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 3.3780145e+07
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 6912
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 1.297168e+06
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 1.572864e+06
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 1.14073824e+08
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 997956
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 3.342336e+06
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 3.342336e+06
+# HELP go_memstats_sys_bytes Number of bytes obtained from system.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 2.82556664e+08
+# HELP go_threads Number of OS threads created.
+# TYPE go_threads gauge
+go_threads 17
+# HELP net_conntrack_dialer_conn_attempted_total Total number of connections attempted by the given dialer a given name.
+# TYPE net_conntrack_dialer_conn_attempted_total counter
+net_conntrack_dialer_conn_attempted_total{dialer_name="alertmanager"} 1079
+net_conntrack_dialer_conn_attempted_total{dialer_name="blackbox"} 439
+net_conntrack_dialer_conn_attempted_total{dialer_name="cadvisor"} 3
+net_conntrack_dialer_conn_attempted_total{dialer_name="default"} 0
+net_conntrack_dialer_conn_attempted_total{dialer_name="docker"} 1762
+net_conntrack_dialer_conn_attempted_total{dialer_name="dtools"} 460
+net_conntrack_dialer_conn_attempted_total{dialer_name="metrics-springboot"} 440
+net_conntrack_dialer_conn_attempted_total{dialer_name="metricsExporter"} 440
+net_conntrack_dialer_conn_attempted_total{dialer_name="node-exporter"} 3
+net_conntrack_dialer_conn_attempted_total{dialer_name="node-exporter-static"} 3956
+net_conntrack_dialer_conn_attempted_total{dialer_name="omp3p"} 110
+net_conntrack_dialer_conn_attempted_total{dialer_name="pmon"} 109
+net_conntrack_dialer_conn_attempted_total{dialer_name="prometheus"} 1
+net_conntrack_dialer_conn_attempted_total{dialer_name="rabbitmq"} 440
+net_conntrack_dialer_conn_attempted_total{dialer_name="snmp-exporter"} 440
+# HELP net_conntrack_dialer_conn_closed_total Total number of connections closed which originated from the dialer of a given name.
+# TYPE net_conntrack_dialer_conn_closed_total counter
+net_conntrack_dialer_conn_closed_total{dialer_name="alertmanager"} 1078
+net_conntrack_dialer_conn_closed_total{dialer_name="blackbox"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="cadvisor"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="default"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="docker"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="dtools"} 4
+net_conntrack_dialer_conn_closed_total{dialer_name="metrics-springboot"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="metricsExporter"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="node-exporter"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="node-exporter-static"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="omp3p"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="pmon"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="prometheus"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="rabbitmq"} 0
+net_conntrack_dialer_conn_closed_total{dialer_name="snmp-exporter"} 0
+# HELP net_conntrack_dialer_conn_established_total Total number of connections successfully established by the given dialer a given name.
+# TYPE net_conntrack_dialer_conn_established_total counter
+net_conntrack_dialer_conn_established_total{dialer_name="alertmanager"} 1079
+net_conntrack_dialer_conn_established_total{dialer_name="blackbox"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="cadvisor"} 3
+net_conntrack_dialer_conn_established_total{dialer_name="default"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="docker"} 3
+net_conntrack_dialer_conn_established_total{dialer_name="dtools"} 5
+net_conntrack_dialer_conn_established_total{dialer_name="metrics-springboot"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="metricsExporter"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="node-exporter"} 3
+net_conntrack_dialer_conn_established_total{dialer_name="node-exporter-static"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="omp3p"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="pmon"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="prometheus"} 1
+net_conntrack_dialer_conn_established_total{dialer_name="rabbitmq"} 0
+net_conntrack_dialer_conn_established_total{dialer_name="snmp-exporter"} 0
+# HELP net_conntrack_dialer_conn_failed_total Total number of connections failed to dial by the dialer a given name.
+# TYPE net_conntrack_dialer_conn_failed_total counter
+net_conntrack_dialer_conn_failed_total{dialer_name="alertmanager",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="alertmanager",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="alertmanager",reason="timeout"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="alertmanager",reason="unknown"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="blackbox",reason="refused"} 439
+net_conntrack_dialer_conn_failed_total{dialer_name="blackbox",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="blackbox",reason="timeout"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="blackbox",reason="unknown"} 439
+net_conntrack_dialer_conn_failed_total{dialer_name="cadvisor",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="cadvisor",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="cadvisor",reason="timeout"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="cadvisor",reason="unknown"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="default",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="default",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="default",reason="timeout"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="default",reason="unknown"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="docker",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="docker",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="docker",reason="timeout"} 1756
+net_conntrack_dialer_conn_failed_total{dialer_name="docker",reason="unknown"} 1756
+net_conntrack_dialer_conn_failed_total{dialer_name="dtools",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="dtools",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="dtools",reason="timeout"} 455
+net_conntrack_dialer_conn_failed_total{dialer_name="dtools",reason="unknown"} 455
+net_conntrack_dialer_conn_failed_total{dialer_name="metrics-springboot",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="metrics-springboot",reason="resolution"} 438
+net_conntrack_dialer_conn_failed_total{dialer_name="metrics-springboot",reason="timeout"} 1
+net_conntrack_dialer_conn_failed_total{dialer_name="metrics-springboot",reason="unknown"} 1
+net_conntrack_dialer_conn_failed_total{dialer_name="metricsExporter",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="metricsExporter",reason="resolution"} 438
+net_conntrack_dialer_conn_failed_total{dialer_name="metricsExporter",reason="timeout"} 1
+net_conntrack_dialer_conn_failed_total{dialer_name="metricsExporter",reason="unknown"} 1
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter",reason="timeout"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter",reason="unknown"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter-static",reason="refused"} 879
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter-static",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter-static",reason="timeout"} 3074
+net_conntrack_dialer_conn_failed_total{dialer_name="node-exporter-static",reason="unknown"} 3953
+net_conntrack_dialer_conn_failed_total{dialer_name="omp3p",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="omp3p",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="omp3p",reason="timeout"} 110
+net_conntrack_dialer_conn_failed_total{dialer_name="omp3p",reason="unknown"} 110
+net_conntrack_dialer_conn_failed_total{dialer_name="pmon",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="pmon",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="pmon",reason="timeout"} 109
+net_conntrack_dialer_conn_failed_total{dialer_name="pmon",reason="unknown"} 109
+net_conntrack_dialer_conn_failed_total{dialer_name="prometheus",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="prometheus",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="prometheus",reason="timeout"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="prometheus",reason="unknown"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="rabbitmq",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="rabbitmq",reason="resolution"} 437
+net_conntrack_dialer_conn_failed_total{dialer_name="rabbitmq",reason="timeout"} 2
+net_conntrack_dialer_conn_failed_total{dialer_name="rabbitmq",reason="unknown"} 2
+net_conntrack_dialer_conn_failed_total{dialer_name="snmp-exporter",reason="refused"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="snmp-exporter",reason="resolution"} 0
+net_conntrack_dialer_conn_failed_total{dialer_name="snmp-exporter",reason="timeout"} 439
+net_conntrack_dialer_conn_failed_total{dialer_name="snmp-exporter",reason="unknown"} 439
+# HELP net_conntrack_listener_conn_accepted_total Total number of connections opened to the listener of a given name.
+# TYPE net_conntrack_listener_conn_accepted_total counter
+net_conntrack_listener_conn_accepted_total{listener_name="http"} 164
+# HELP net_conntrack_listener_conn_closed_total Total number of connections closed that were made to the listener of a given name.
+# TYPE net_conntrack_listener_conn_closed_total counter
+net_conntrack_listener_conn_closed_total{listener_name="http"} 154
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 72.24
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 65536
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 66
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 1.49757952e+08
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.54746178304e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 3.60415232e+08
+# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
+# TYPE process_virtual_memory_max_bytes gauge
+process_virtual_memory_max_bytes -1
+# HELP prometheus_api_remote_read_queries The current number of remote read queries being executed or waiting.
+# TYPE prometheus_api_remote_read_queries gauge
+prometheus_api_remote_read_queries 0
+# HELP prometheus_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which prometheus was built.
+# TYPE prometheus_build_info gauge
+prometheus_build_info{branch="HEAD",goversion="go1.11.1",revision="67dc912ac8b24f94a1fc478f352d25179c94ab9b",version="2.5.0"} 1
+# HELP prometheus_config_last_reload_success_timestamp_seconds Timestamp of the last successful configuration reload.
+# TYPE prometheus_config_last_reload_success_timestamp_seconds gauge
+prometheus_config_last_reload_success_timestamp_seconds 1.5474617943850532e+09
+# HELP prometheus_config_last_reload_successful Whether the last configuration reload attempt was successful.
+# TYPE prometheus_config_last_reload_successful gauge
+prometheus_config_last_reload_successful 1
+# HELP prometheus_engine_queries The current number of queries being executed or waiting.
+# TYPE prometheus_engine_queries gauge
+prometheus_engine_queries 0
+# HELP prometheus_engine_queries_concurrent_max The max number of concurrent queries.
+# TYPE prometheus_engine_queries_concurrent_max gauge
+prometheus_engine_queries_concurrent_max 20
+# HELP prometheus_engine_query_duration_seconds Query timings
+# TYPE prometheus_engine_query_duration_seconds summary
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.5"} 0.000102561
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.9"} 0.00130245
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.99"} 0.005503275
+prometheus_engine_query_duration_seconds_sum{slice="inner_eval"} 9.597865235000041
+prometheus_engine_query_duration_seconds_count{slice="inner_eval"} 12447
+prometheus_engine_query_duration_seconds{slice="prepare_time",quantile="0.5"} 3.6932e-05
+prometheus_engine_query_duration_seconds{slice="prepare_time",quantile="0.9"} 0.000352492
+prometheus_engine_query_duration_seconds{slice="prepare_time",quantile="0.99"} 0.00335773
+prometheus_engine_query_duration_seconds_sum{slice="prepare_time"} 2.7730663239999913
+prometheus_engine_query_duration_seconds_count{slice="prepare_time"} 12447
+prometheus_engine_query_duration_seconds{slice="queue_time",quantile="0.5"} 1.432e-06
+prometheus_engine_query_duration_seconds{slice="queue_time",quantile="0.9"} 2.695e-06
+prometheus_engine_query_duration_seconds{slice="queue_time",quantile="0.99"} 5.067e-06
+prometheus_engine_query_duration_seconds_sum{slice="queue_time"} 0.02265767300000007
+prometheus_engine_query_duration_seconds_count{slice="queue_time"} 12447
+prometheus_engine_query_duration_seconds{slice="result_sort",quantile="0.5"} 7.57e-07
+prometheus_engine_query_duration_seconds{slice="result_sort",quantile="0.9"} 1.307e-06
+prometheus_engine_query_duration_seconds{slice="result_sort",quantile="0.99"} 1.813e-06
+prometheus_engine_query_duration_seconds_sum{slice="result_sort"} 0.002207752999999998
+prometheus_engine_query_duration_seconds_count{slice="result_sort"} 2076
+# HELP prometheus_http_request_duration_seconds Histogram of latencies for HTTP requests.
+# TYPE prometheus_http_request_duration_seconds histogram
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="0.1"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="0.2"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="0.4"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="1"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="3"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="8"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="20"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="60"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="120"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/graph",le="+Inf"} 3
+prometheus_http_request_duration_seconds_sum{handler="/graph"} 0.003099572
+prometheus_http_request_duration_seconds_count{handler="/graph"} 3
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="0.1"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="0.2"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="0.4"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="1"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="3"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="8"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="20"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="60"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="120"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/label/:name/values",le="+Inf"} 18
+prometheus_http_request_duration_seconds_sum{handler="/label/:name/values"} 0.030439961999999994
+prometheus_http_request_duration_seconds_count{handler="/label/:name/values"} 18
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="0.1"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="0.2"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="0.4"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="1"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="3"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="8"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="20"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="60"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="120"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/metrics",le="+Inf"} 440
+prometheus_http_request_duration_seconds_sum{handler="/metrics"} 2.4230492670000014
+prometheus_http_request_duration_seconds_count{handler="/metrics"} 440
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="0.1"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="0.2"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="0.4"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="1"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="3"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="8"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="20"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="60"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="120"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query",le="+Inf"} 30
+prometheus_http_request_duration_seconds_sum{handler="/query"} 0.026770083
+prometheus_http_request_duration_seconds_count{handler="/query"} 30
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="0.1"} 2063
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="0.2"} 2079
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="0.4"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="1"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="3"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="8"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="20"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="60"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="120"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/query_range",le="+Inf"} 2085
+prometheus_http_request_duration_seconds_sum{handler="/query_range"} 8.342866974
+prometheus_http_request_duration_seconds_count{handler="/query_range"} 2085
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="0.1"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="0.2"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="0.4"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="1"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="3"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="8"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="20"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="60"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="120"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/series",le="+Inf"} 13
+prometheus_http_request_duration_seconds_sum{handler="/series"} 0.008104292000000003
+prometheus_http_request_duration_seconds_count{handler="/series"} 13
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="0.1"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="0.2"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="0.4"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="1"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="3"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="8"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="20"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="60"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="120"} 4
+prometheus_http_request_duration_seconds_bucket{handler="/static/*filepath",le="+Inf"} 4
+prometheus_http_request_duration_seconds_sum{handler="/static/*filepath"} 0.001682887
+prometheus_http_request_duration_seconds_count{handler="/static/*filepath"} 4
+# HELP prometheus_http_response_size_bytes Histogram of response size for HTTP requests.
+# TYPE prometheus_http_response_size_bytes histogram
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="100"} 0
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="1000"} 0
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="10000"} 3
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="100000"} 3
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="1e+06"} 3
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="1e+07"} 3
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="1e+08"} 3
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="1e+09"} 3
+prometheus_http_response_size_bytes_bucket{handler="/graph",le="+Inf"} 3
+prometheus_http_response_size_bytes_sum{handler="/graph"} 15297
+prometheus_http_response_size_bytes_count{handler="/graph"} 3
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="100"} 8
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="1000"} 10
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="10000"} 18
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="100000"} 18
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="1e+06"} 18
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="1e+07"} 18
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="1e+08"} 18
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="1e+09"} 18
+prometheus_http_response_size_bytes_bucket{handler="/label/:name/values",le="+Inf"} 18
+prometheus_http_response_size_bytes_sum{handler="/label/:name/values"} 30708
+prometheus_http_response_size_bytes_count{handler="/label/:name/values"} 18
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="100"} 0
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="1000"} 0
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="10000"} 440
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="100000"} 440
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="1e+06"} 440
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="1e+07"} 440
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="1e+08"} 440
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="1e+09"} 440
+prometheus_http_response_size_bytes_bucket{handler="/metrics",le="+Inf"} 440
+prometheus_http_response_size_bytes_sum{handler="/metrics"} 4.036987e+06
+prometheus_http_response_size_bytes_count{handler="/metrics"} 440
+prometheus_http_response_size_bytes_bucket{handler="/query",le="100"} 1
+prometheus_http_response_size_bytes_bucket{handler="/query",le="1000"} 29
+prometheus_http_response_size_bytes_bucket{handler="/query",le="10000"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query",le="100000"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query",le="1e+06"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query",le="1e+07"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query",le="1e+08"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query",le="1e+09"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query",le="+Inf"} 30
+prometheus_http_response_size_bytes_sum{handler="/query"} 15378
+prometheus_http_response_size_bytes_count{handler="/query"} 30
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="100"} 517
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="1000"} 1418
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="10000"} 2081
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="100000"} 2085
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="1e+06"} 2085
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="1e+07"} 2085
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="1e+08"} 2085
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="1e+09"} 2085
+prometheus_http_response_size_bytes_bucket{handler="/query_range",le="+Inf"} 2085
+prometheus_http_response_size_bytes_sum{handler="/query_range"} 1.951629e+06
+prometheus_http_response_size_bytes_count{handler="/query_range"} 2085
+prometheus_http_response_size_bytes_bucket{handler="/series",le="100"} 6
+prometheus_http_response_size_bytes_bucket{handler="/series",le="1000"} 12
+prometheus_http_response_size_bytes_bucket{handler="/series",le="10000"} 13
+prometheus_http_response_size_bytes_bucket{handler="/series",le="100000"} 13
+prometheus_http_response_size_bytes_bucket{handler="/series",le="1e+06"} 13
+prometheus_http_response_size_bytes_bucket{handler="/series",le="1e+07"} 13
+prometheus_http_response_size_bytes_bucket{handler="/series",le="1e+08"} 13
+prometheus_http_response_size_bytes_bucket{handler="/series",le="1e+09"} 13
+prometheus_http_response_size_bytes_bucket{handler="/series",le="+Inf"} 13
+prometheus_http_response_size_bytes_sum{handler="/series"} 5565
+prometheus_http_response_size_bytes_count{handler="/series"} 13
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="100"} 0
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="1000"} 0
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="10000"} 2
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="100000"} 4
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="1e+06"} 4
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="1e+07"} 4
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="1e+08"} 4
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="1e+09"} 4
+prometheus_http_response_size_bytes_bucket{handler="/static/*filepath",le="+Inf"} 4
+prometheus_http_response_size_bytes_sum{handler="/static/*filepath"} 42896
+prometheus_http_response_size_bytes_count{handler="/static/*filepath"} 4
+# HELP prometheus_notifications_alertmanagers_discovered The number of alertmanagers discovered and active.
+# TYPE prometheus_notifications_alertmanagers_discovered gauge
+prometheus_notifications_alertmanagers_discovered 2
+# HELP prometheus_notifications_dropped_total Total number of alerts dropped due to errors when sending to Alertmanager.
+# TYPE prometheus_notifications_dropped_total counter
+prometheus_notifications_dropped_total 0
+# HELP prometheus_notifications_errors_total Total number of errors sending alert notifications.
+# TYPE prometheus_notifications_errors_total counter
+prometheus_notifications_errors_total{alertmanager="http://10.0.0.18:9093/api/v1/alerts"} 0
+prometheus_notifications_errors_total{alertmanager="http://alertmanager:9093/api/v1/alerts"} 0
+# HELP prometheus_notifications_latency_seconds Latency quantiles for sending alert notifications.
+# TYPE prometheus_notifications_latency_seconds summary
+prometheus_notifications_latency_seconds{alertmanager="http://10.0.0.18:9093/api/v1/alerts",quantile="0.5"} 0.001508443
+prometheus_notifications_latency_seconds{alertmanager="http://10.0.0.18:9093/api/v1/alerts",quantile="0.9"} 0.002195091
+prometheus_notifications_latency_seconds{alertmanager="http://10.0.0.18:9093/api/v1/alerts",quantile="0.99"} 0.003951238
+prometheus_notifications_latency_seconds_sum{alertmanager="http://10.0.0.18:9093/api/v1/alerts"} 1.0281249499999998
+prometheus_notifications_latency_seconds_count{alertmanager="http://10.0.0.18:9093/api/v1/alerts"} 539
+prometheus_notifications_latency_seconds{alertmanager="http://alertmanager:9093/api/v1/alerts",quantile="0.5"} 0.001739317
+prometheus_notifications_latency_seconds{alertmanager="http://alertmanager:9093/api/v1/alerts",quantile="0.9"} 0.002803514
+prometheus_notifications_latency_seconds{alertmanager="http://alertmanager:9093/api/v1/alerts",quantile="0.99"} 0.004323435
+prometheus_notifications_latency_seconds_sum{alertmanager="http://alertmanager:9093/api/v1/alerts"} 1.164169188
+prometheus_notifications_latency_seconds_count{alertmanager="http://alertmanager:9093/api/v1/alerts"} 539
+# HELP prometheus_notifications_queue_capacity The capacity of the alert notifications queue.
+# TYPE prometheus_notifications_queue_capacity gauge
+prometheus_notifications_queue_capacity 10000
+# HELP prometheus_notifications_queue_length The number of alert notifications in the queue.
+# TYPE prometheus_notifications_queue_length gauge
+prometheus_notifications_queue_length 0
+# HELP prometheus_notifications_sent_total Total number of alerts sent.
+# TYPE prometheus_notifications_sent_total counter
+prometheus_notifications_sent_total{alertmanager="http://10.0.0.18:9093/api/v1/alerts"} 1679
+prometheus_notifications_sent_total{alertmanager="http://alertmanager:9093/api/v1/alerts"} 1679
+# HELP prometheus_rule_evaluation_duration_seconds The duration for a rule to execute.
+# TYPE prometheus_rule_evaluation_duration_seconds summary
+prometheus_rule_evaluation_duration_seconds{quantile="0.5"} 0.000285076
+prometheus_rule_evaluation_duration_seconds{quantile="0.9"} 0.00314529
+prometheus_rule_evaluation_duration_seconds{quantile="0.99"} 0.008859458
+prometheus_rule_evaluation_duration_seconds_sum 11.83071865200005
+prometheus_rule_evaluation_duration_seconds_count 10341
+# HELP prometheus_rule_evaluation_failures_total The total number of rule evaluation failures.
+# TYPE prometheus_rule_evaluation_failures_total counter
+prometheus_rule_evaluation_failures_total 0
+# HELP prometheus_rule_group_duration_seconds The duration of rule group evaluations.
+# TYPE prometheus_rule_group_duration_seconds summary
+prometheus_rule_group_duration_seconds{quantile="0.01"} 0.000153309
+prometheus_rule_group_duration_seconds{quantile="0.05"} 0.000175224
+prometheus_rule_group_duration_seconds{quantile="0.5"} 0.001098803
+prometheus_rule_group_duration_seconds{quantile="0.9"} 0.009840977
+prometheus_rule_group_duration_seconds{quantile="0.99"} 0.011836607
+prometheus_rule_group_duration_seconds_sum 11.884371874000008
+prometheus_rule_group_duration_seconds_count 3741
+# HELP prometheus_rule_group_interval_seconds The interval of a rule group.
+# TYPE prometheus_rule_group_interval_seconds gauge
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;Availability alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;CPU alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;Disk alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;Docker alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;Memory alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;Prometheus alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/alert_rules.yml;Systemd service alerts"} 15
+prometheus_rule_group_interval_seconds{rule_group="/prometheus_config/recording_rules.yml;Container recording rules"} 10
+# HELP prometheus_rule_group_iterations_missed_total The total number of rule group evaluations missed due to slow rule group evaluation.
+# TYPE prometheus_rule_group_iterations_missed_total counter
+prometheus_rule_group_iterations_missed_total 0
+# HELP prometheus_rule_group_iterations_total The total number of scheduled rule group evaluations, whether executed or missed.
+# TYPE prometheus_rule_group_iterations_total counter
+prometheus_rule_group_iterations_total 3741
+# HELP prometheus_rule_group_last_duration_seconds The duration of the last rule group evaluation.
+# TYPE prometheus_rule_group_last_duration_seconds gauge
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;Availability alerts"} 0.005973865
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;CPU alerts"} 0.00134107
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;Disk alerts"} 0.00102612
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;Docker alerts"} 0.011786348
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;Memory alerts"} 0.000510001
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;Prometheus alerts"} 0.00019929
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/alert_rules.yml;Systemd service alerts"} 0.000208679
+prometheus_rule_group_last_duration_seconds{rule_group="/prometheus_config/recording_rules.yml;Container recording rules"} 0.003036345
+# HELP prometheus_sd_azure_refresh_duration_seconds The duration of a Azure-SD refresh in seconds.
+# TYPE prometheus_sd_azure_refresh_duration_seconds summary
+prometheus_sd_azure_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_azure_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_azure_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_azure_refresh_duration_seconds_sum 0
+prometheus_sd_azure_refresh_duration_seconds_count 0
+# HELP prometheus_sd_azure_refresh_failures_total Number of Azure-SD refresh failures.
+# TYPE prometheus_sd_azure_refresh_failures_total counter
+prometheus_sd_azure_refresh_failures_total 0
+# HELP prometheus_sd_configs_failed_total Total number of service discovery configurations that failed to load.
+# TYPE prometheus_sd_configs_failed_total counter
+prometheus_sd_configs_failed_total 0
+# HELP prometheus_sd_consul_rpc_duration_seconds The duration of a Consul RPC call in seconds.
+# TYPE prometheus_sd_consul_rpc_duration_seconds summary
+prometheus_sd_consul_rpc_duration_seconds{call="service",endpoint="catalog",quantile="0.5"} NaN
+prometheus_sd_consul_rpc_duration_seconds{call="service",endpoint="catalog",quantile="0.9"} NaN
+prometheus_sd_consul_rpc_duration_seconds{call="service",endpoint="catalog",quantile="0.99"} NaN
+prometheus_sd_consul_rpc_duration_seconds_sum{call="service",endpoint="catalog"} 0
+prometheus_sd_consul_rpc_duration_seconds_count{call="service",endpoint="catalog"} 0
+prometheus_sd_consul_rpc_duration_seconds{call="services",endpoint="catalog",quantile="0.5"} NaN
+prometheus_sd_consul_rpc_duration_seconds{call="services",endpoint="catalog",quantile="0.9"} NaN
+prometheus_sd_consul_rpc_duration_seconds{call="services",endpoint="catalog",quantile="0.99"} NaN
+prometheus_sd_consul_rpc_duration_seconds_sum{call="services",endpoint="catalog"} 0
+prometheus_sd_consul_rpc_duration_seconds_count{call="services",endpoint="catalog"} 0
+# HELP prometheus_sd_consul_rpc_failures_total The number of Consul RPC call failures.
+# TYPE prometheus_sd_consul_rpc_failures_total counter
+prometheus_sd_consul_rpc_failures_total 0
+# HELP prometheus_sd_discovered_targets Current number of discovered targets.
+# TYPE prometheus_sd_discovered_targets gauge
+prometheus_sd_discovered_targets{config="alertmanager",name="scrape"} 1
+prometheus_sd_discovered_targets{config="blackbox",name="scrape"} 1
+prometheus_sd_discovered_targets{config="c60b65a321f2f989706fa3a7a58893fc",name="notify"} 1
+prometheus_sd_discovered_targets{config="cadvisor",name="scrape"} 3
+prometheus_sd_discovered_targets{config="docker",name="scrape"} 7
+prometheus_sd_discovered_targets{config="dtools",name="scrape"} 2
+prometheus_sd_discovered_targets{config="e83c32b0ffb24644493f494ed8a771ab",name="notify"} 1
+prometheus_sd_discovered_targets{config="metrics-springboot",name="scrape"} 1
+prometheus_sd_discovered_targets{config="metricsExporter",name="scrape"} 1
+prometheus_sd_discovered_targets{config="node-exporter",name="scrape"} 3
+prometheus_sd_discovered_targets{config="node-exporter-static",name="scrape"} 2
+prometheus_sd_discovered_targets{config="omp3p",name="scrape"} 1
+prometheus_sd_discovered_targets{config="pmon",name="scrape"} 1
+prometheus_sd_discovered_targets{config="prometheus",name="scrape"} 1
+prometheus_sd_discovered_targets{config="rabbitmq",name="scrape"} 1
+prometheus_sd_discovered_targets{config="snmp-exporter",name="scrape"} 1
+# HELP prometheus_sd_dns_lookup_failures_total The number of DNS-SD lookup failures.
+# TYPE prometheus_sd_dns_lookup_failures_total counter
+prometheus_sd_dns_lookup_failures_total 0
+# HELP prometheus_sd_dns_lookups_total The number of DNS-SD lookups.
+# TYPE prometheus_sd_dns_lookups_total counter
+prometheus_sd_dns_lookups_total 663
+# HELP prometheus_sd_ec2_refresh_duration_seconds The duration of a EC2-SD refresh in seconds.
+# TYPE prometheus_sd_ec2_refresh_duration_seconds summary
+prometheus_sd_ec2_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_ec2_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_ec2_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_ec2_refresh_duration_seconds_sum 0
+prometheus_sd_ec2_refresh_duration_seconds_count 0
+# HELP prometheus_sd_ec2_refresh_failures_total The number of EC2-SD scrape failures.
+# TYPE prometheus_sd_ec2_refresh_failures_total counter
+prometheus_sd_ec2_refresh_failures_total 0
+# HELP prometheus_sd_file_mtime_seconds Timestamp (mtime) of files read by FileSD. Timestamp is set at read time.
+# TYPE prometheus_sd_file_mtime_seconds gauge
+prometheus_sd_file_mtime_seconds{filename="/prometheus_config/targets/docker_nodes.yml"} 1.547461783e+09
+prometheus_sd_file_mtime_seconds{filename="/prometheus_config/targets/nodes.json"} 1.547461783e+09
+# HELP prometheus_sd_file_read_errors_total The number of File-SD read errors.
+# TYPE prometheus_sd_file_read_errors_total counter
+prometheus_sd_file_read_errors_total 0
+# HELP prometheus_sd_file_scan_duration_seconds The duration of the File-SD scan in seconds.
+# TYPE prometheus_sd_file_scan_duration_seconds summary
+prometheus_sd_file_scan_duration_seconds{quantile="0.5"} 0.000150869
+prometheus_sd_file_scan_duration_seconds{quantile="0.9"} 0.00016711
+prometheus_sd_file_scan_duration_seconds{quantile="0.99"} 0.00016711
+prometheus_sd_file_scan_duration_seconds_sum 0.005946346999999999
+prometheus_sd_file_scan_duration_seconds_count 35
+# HELP prometheus_sd_gce_refresh_duration The duration of a GCE-SD refresh in seconds.
+# TYPE prometheus_sd_gce_refresh_duration summary
+prometheus_sd_gce_refresh_duration{quantile="0.5"} NaN
+prometheus_sd_gce_refresh_duration{quantile="0.9"} NaN
+prometheus_sd_gce_refresh_duration{quantile="0.99"} NaN
+prometheus_sd_gce_refresh_duration_sum 0
+prometheus_sd_gce_refresh_duration_count 0
+# HELP prometheus_sd_gce_refresh_failures_total The number of GCE-SD refresh failures.
+# TYPE prometheus_sd_gce_refresh_failures_total counter
+prometheus_sd_gce_refresh_failures_total 0
+# HELP prometheus_sd_kubernetes_cache_last_resource_version Last resource version from the Kubernetes API.
+# TYPE prometheus_sd_kubernetes_cache_last_resource_version gauge
+prometheus_sd_kubernetes_cache_last_resource_version 0
+# HELP prometheus_sd_kubernetes_cache_list_duration_seconds Duration of a Kubernetes API call in seconds.
+# TYPE prometheus_sd_kubernetes_cache_list_duration_seconds summary
+prometheus_sd_kubernetes_cache_list_duration_seconds_sum 0
+prometheus_sd_kubernetes_cache_list_duration_seconds_count 0
+# HELP prometheus_sd_kubernetes_cache_list_items Count of items in a list from the Kubernetes API.
+# TYPE prometheus_sd_kubernetes_cache_list_items summary
+prometheus_sd_kubernetes_cache_list_items_sum 0
+prometheus_sd_kubernetes_cache_list_items_count 0
+# HELP prometheus_sd_kubernetes_cache_list_total Total number of list operations.
+# TYPE prometheus_sd_kubernetes_cache_list_total counter
+prometheus_sd_kubernetes_cache_list_total 0
+# HELP prometheus_sd_kubernetes_cache_short_watches_total Total number of short watch operations.
+# TYPE prometheus_sd_kubernetes_cache_short_watches_total counter
+prometheus_sd_kubernetes_cache_short_watches_total 0
+# HELP prometheus_sd_kubernetes_cache_watch_duration_seconds Duration of watches on the Kubernetes API.
+# TYPE prometheus_sd_kubernetes_cache_watch_duration_seconds summary
+prometheus_sd_kubernetes_cache_watch_duration_seconds_sum 0
+prometheus_sd_kubernetes_cache_watch_duration_seconds_count 0
+# HELP prometheus_sd_kubernetes_cache_watch_events Number of items in watches on the Kubernetes API.
+# TYPE prometheus_sd_kubernetes_cache_watch_events summary
+prometheus_sd_kubernetes_cache_watch_events_sum 0
+prometheus_sd_kubernetes_cache_watch_events_count 0
+# HELP prometheus_sd_kubernetes_cache_watches_total Total number of watch operations.
+# TYPE prometheus_sd_kubernetes_cache_watches_total counter
+prometheus_sd_kubernetes_cache_watches_total 0
+# HELP prometheus_sd_kubernetes_events_total The number of Kubernetes events handled.
+# TYPE prometheus_sd_kubernetes_events_total counter
+prometheus_sd_kubernetes_events_total{event="add",role="endpoints"} 0
+prometheus_sd_kubernetes_events_total{event="add",role="node"} 0
+prometheus_sd_kubernetes_events_total{event="add",role="pod"} 0
+prometheus_sd_kubernetes_events_total{event="add",role="service"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="endpoints"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="node"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="pod"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="service"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="endpoints"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="node"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="pod"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="service"} 0
+# HELP prometheus_sd_marathon_refresh_duration_seconds The duration of a Marathon-SD refresh in seconds.
+# TYPE prometheus_sd_marathon_refresh_duration_seconds summary
+prometheus_sd_marathon_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_marathon_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_marathon_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_marathon_refresh_duration_seconds_sum 0
+prometheus_sd_marathon_refresh_duration_seconds_count 0
+# HELP prometheus_sd_marathon_refresh_failures_total The number of Marathon-SD refresh failures.
+# TYPE prometheus_sd_marathon_refresh_failures_total counter
+prometheus_sd_marathon_refresh_failures_total 0
+# HELP prometheus_sd_openstack_refresh_duration_seconds The duration of an OpenStack-SD refresh in seconds.
+# TYPE prometheus_sd_openstack_refresh_duration_seconds summary
+prometheus_sd_openstack_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_openstack_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_openstack_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_openstack_refresh_duration_seconds_sum 0
+prometheus_sd_openstack_refresh_duration_seconds_count 0
+# HELP prometheus_sd_openstack_refresh_failures_total The number of OpenStack-SD scrape failures.
+# TYPE prometheus_sd_openstack_refresh_failures_total counter
+prometheus_sd_openstack_refresh_failures_total 0
+# HELP prometheus_sd_received_updates_total Total number of update events received from the SD providers.
+# TYPE prometheus_sd_received_updates_total counter
+prometheus_sd_received_updates_total 722
+# HELP prometheus_sd_triton_refresh_duration_seconds The duration of a Triton-SD refresh in seconds.
+# TYPE prometheus_sd_triton_refresh_duration_seconds summary
+prometheus_sd_triton_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_triton_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_triton_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_triton_refresh_duration_seconds_sum 0
+prometheus_sd_triton_refresh_duration_seconds_count 0
+# HELP prometheus_sd_triton_refresh_failures_total The number of Triton-SD scrape failures.
+# TYPE prometheus_sd_triton_refresh_failures_total counter
+prometheus_sd_triton_refresh_failures_total 0
+# HELP prometheus_sd_updates_delayed_total Total number of update events that couldn't be sent immediately.
+# TYPE prometheus_sd_updates_delayed_total counter
+prometheus_sd_updates_delayed_total 0
+# HELP prometheus_sd_updates_total Total number of update events sent to the SD consumers.
+# TYPE prometheus_sd_updates_total counter
+prometheus_sd_updates_total 440
+# HELP prometheus_target_interval_length_seconds Actual intervals between scrapes.
+# TYPE prometheus_target_interval_length_seconds summary
+prometheus_target_interval_length_seconds{interval="15s",quantile="0.01"} 14.999802948
+prometheus_target_interval_length_seconds{interval="15s",quantile="0.05"} 14.999890463
+prometheus_target_interval_length_seconds{interval="15s",quantile="0.5"} 15.000018653
+prometheus_target_interval_length_seconds{interval="15s",quantile="0.9"} 15.000124024
+prometheus_target_interval_length_seconds{interval="15s",quantile="0.99"} 15.000309521
+prometheus_target_interval_length_seconds_sum{interval="15s"} 203985.2789876348
+prometheus_target_interval_length_seconds_count{interval="15s"} 13599
+prometheus_target_interval_length_seconds{interval="1m0s",quantile="0.01"} 59.999791156
+prometheus_target_interval_length_seconds{interval="1m0s",quantile="0.05"} 59.999791156
+prometheus_target_interval_length_seconds{interval="1m0s",quantile="0.5"} 60.00001568
+prometheus_target_interval_length_seconds{interval="1m0s",quantile="0.9"} 60.000113354
+prometheus_target_interval_length_seconds{interval="1m0s",quantile="0.99"} 60.000142392
+prometheus_target_interval_length_seconds_sum{interval="1m0s"} 13020.00425812099
+prometheus_target_interval_length_seconds_count{interval="1m0s"} 217
+# HELP prometheus_target_scrape_pool_sync_total Total number of syncs that were executed on a scrape pool.
+# TYPE prometheus_target_scrape_pool_sync_total counter
+prometheus_target_scrape_pool_sync_total{scrape_job="alertmanager"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="blackbox"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="cadvisor"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="docker"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="dtools"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="metrics-springboot"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="metricsExporter"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="node-exporter"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="node-exporter-static"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="omp3p"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="pmon"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="prometheus"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="rabbitmq"} 220
+prometheus_target_scrape_pool_sync_total{scrape_job="snmp-exporter"} 220
+# HELP prometheus_target_scrapes_exceeded_sample_limit_total Total number of scrapes that hit the sample limit and were rejected.
+# TYPE prometheus_target_scrapes_exceeded_sample_limit_total counter
+prometheus_target_scrapes_exceeded_sample_limit_total 0
+# HELP prometheus_target_scrapes_sample_duplicate_timestamp_total Total number of samples rejected due to duplicate timestamps but different values
+# TYPE prometheus_target_scrapes_sample_duplicate_timestamp_total counter
+prometheus_target_scrapes_sample_duplicate_timestamp_total 0
+# HELP prometheus_target_scrapes_sample_out_of_bounds_total Total number of samples rejected due to timestamp falling outside of the time bounds
+# TYPE prometheus_target_scrapes_sample_out_of_bounds_total counter
+prometheus_target_scrapes_sample_out_of_bounds_total 0
+# HELP prometheus_target_scrapes_sample_out_of_order_total Total number of samples rejected due to not being out of the expected order
+# TYPE prometheus_target_scrapes_sample_out_of_order_total counter
+prometheus_target_scrapes_sample_out_of_order_total 0
+# HELP prometheus_target_sync_length_seconds Actual interval to sync the scrape pool.
+# TYPE prometheus_target_sync_length_seconds summary
+prometheus_target_sync_length_seconds{scrape_job="alertmanager",quantile="0.01"} 8.228e-06
+prometheus_target_sync_length_seconds{scrape_job="alertmanager",quantile="0.05"} 8.228e-06
+prometheus_target_sync_length_seconds{scrape_job="alertmanager",quantile="0.5"} 1.0128e-05
+prometheus_target_sync_length_seconds{scrape_job="alertmanager",quantile="0.9"} 3.0083e-05
+prometheus_target_sync_length_seconds{scrape_job="alertmanager",quantile="0.99"} 3.4982e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="alertmanager"} 0.004441472
+prometheus_target_sync_length_seconds_count{scrape_job="alertmanager"} 220
+prometheus_target_sync_length_seconds{scrape_job="blackbox",quantile="0.01"} 3.1115e-05
+prometheus_target_sync_length_seconds{scrape_job="blackbox",quantile="0.05"} 3.1115e-05
+prometheus_target_sync_length_seconds{scrape_job="blackbox",quantile="0.5"} 3.2401e-05
+prometheus_target_sync_length_seconds{scrape_job="blackbox",quantile="0.9"} 5.483e-05
+prometheus_target_sync_length_seconds{scrape_job="blackbox",quantile="0.99"} 5.5643e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="blackbox"} 0.010230792
+prometheus_target_sync_length_seconds_count{scrape_job="blackbox"} 220
+prometheus_target_sync_length_seconds{scrape_job="cadvisor",quantile="0.01"} 1.6821e-05
+prometheus_target_sync_length_seconds{scrape_job="cadvisor",quantile="0.05"} 1.6821e-05
+prometheus_target_sync_length_seconds{scrape_job="cadvisor",quantile="0.5"} 2.2309e-05
+prometheus_target_sync_length_seconds{scrape_job="cadvisor",quantile="0.9"} 5.414e-05
+prometheus_target_sync_length_seconds{scrape_job="cadvisor",quantile="0.99"} 6.948e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="cadvisor"} 0.007638488999999999
+prometheus_target_sync_length_seconds_count{scrape_job="cadvisor"} 220
+prometheus_target_sync_length_seconds{scrape_job="docker",quantile="0.01"} 3.7379e-05
+prometheus_target_sync_length_seconds{scrape_job="docker",quantile="0.05"} 3.7379e-05
+prometheus_target_sync_length_seconds{scrape_job="docker",quantile="0.5"} 4.1057e-05
+prometheus_target_sync_length_seconds{scrape_job="docker",quantile="0.9"} 7.1426e-05
+prometheus_target_sync_length_seconds{scrape_job="docker",quantile="0.99"} 7.8358e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="docker"} 0.012630491999999997
+prometheus_target_sync_length_seconds_count{scrape_job="docker"} 220
+prometheus_target_sync_length_seconds{scrape_job="dtools",quantile="0.01"} 1.4267e-05
+prometheus_target_sync_length_seconds{scrape_job="dtools",quantile="0.05"} 1.4267e-05
+prometheus_target_sync_length_seconds{scrape_job="dtools",quantile="0.5"} 1.7235e-05
+prometheus_target_sync_length_seconds{scrape_job="dtools",quantile="0.9"} 4.0407e-05
+prometheus_target_sync_length_seconds{scrape_job="dtools",quantile="0.99"} 4.3659e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="dtools"} 0.005465363
+prometheus_target_sync_length_seconds_count{scrape_job="dtools"} 220
+prometheus_target_sync_length_seconds{scrape_job="metrics-springboot",quantile="0.01"} 8.984e-06
+prometheus_target_sync_length_seconds{scrape_job="metrics-springboot",quantile="0.05"} 8.984e-06
+prometheus_target_sync_length_seconds{scrape_job="metrics-springboot",quantile="0.5"} 1.0695e-05
+prometheus_target_sync_length_seconds{scrape_job="metrics-springboot",quantile="0.9"} 2.764e-05
+prometheus_target_sync_length_seconds{scrape_job="metrics-springboot",quantile="0.99"} 4.124e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="metrics-springboot"} 0.004592302999999999
+prometheus_target_sync_length_seconds_count{scrape_job="metrics-springboot"} 220
+prometheus_target_sync_length_seconds{scrape_job="metricsExporter",quantile="0.01"} 8.276e-06
+prometheus_target_sync_length_seconds{scrape_job="metricsExporter",quantile="0.05"} 8.276e-06
+prometheus_target_sync_length_seconds{scrape_job="metricsExporter",quantile="0.5"} 1.0457e-05
+prometheus_target_sync_length_seconds{scrape_job="metricsExporter",quantile="0.9"} 3.6992e-05
+prometheus_target_sync_length_seconds{scrape_job="metricsExporter",quantile="0.99"} 4.4268e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="metricsExporter"} 0.004363883999999999
+prometheus_target_sync_length_seconds_count{scrape_job="metricsExporter"} 220
+prometheus_target_sync_length_seconds{scrape_job="node-exporter",quantile="0.01"} 1.75e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter",quantile="0.05"} 1.75e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter",quantile="0.5"} 2.3375e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter",quantile="0.9"} 4.1036e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter",quantile="0.99"} 4.5253e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="node-exporter"} 0.008584360000000003
+prometheus_target_sync_length_seconds_count{scrape_job="node-exporter"} 220
+prometheus_target_sync_length_seconds{scrape_job="node-exporter-static",quantile="0.01"} 4.6952e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter-static",quantile="0.05"} 4.6952e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter-static",quantile="0.5"} 6.1939e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter-static",quantile="0.9"} 8.9762e-05
+prometheus_target_sync_length_seconds{scrape_job="node-exporter-static",quantile="0.99"} 9.1958e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="node-exporter-static"} 0.018913523999999994
+prometheus_target_sync_length_seconds_count{scrape_job="node-exporter-static"} 220
+prometheus_target_sync_length_seconds{scrape_job="omp3p",quantile="0.01"} 9.361e-06
+prometheus_target_sync_length_seconds{scrape_job="omp3p",quantile="0.05"} 9.361e-06
+prometheus_target_sync_length_seconds{scrape_job="omp3p",quantile="0.5"} 1.1916e-05
+prometheus_target_sync_length_seconds{scrape_job="omp3p",quantile="0.9"} 3.7137e-05
+prometheus_target_sync_length_seconds{scrape_job="omp3p",quantile="0.99"} 3.755e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="omp3p"} 0.004027890000000001
+prometheus_target_sync_length_seconds_count{scrape_job="omp3p"} 220
+prometheus_target_sync_length_seconds{scrape_job="pmon",quantile="0.01"} 8.578e-06
+prometheus_target_sync_length_seconds{scrape_job="pmon",quantile="0.05"} 8.578e-06
+prometheus_target_sync_length_seconds{scrape_job="pmon",quantile="0.5"} 1.0165e-05
+prometheus_target_sync_length_seconds{scrape_job="pmon",quantile="0.9"} 2.8877e-05
+prometheus_target_sync_length_seconds{scrape_job="pmon",quantile="0.99"} 3.7735e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="pmon"} 0.004126809000000002
+prometheus_target_sync_length_seconds_count{scrape_job="pmon"} 220
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.01"} 8.093e-06
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.05"} 8.093e-06
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.5"} 1.0469e-05
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.9"} 3.6211e-05
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.99"} 6.7429e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="prometheus"} 0.005000578999999998
+prometheus_target_sync_length_seconds_count{scrape_job="prometheus"} 220
+prometheus_target_sync_length_seconds{scrape_job="rabbitmq",quantile="0.01"} 9.08e-06
+prometheus_target_sync_length_seconds{scrape_job="rabbitmq",quantile="0.05"} 9.08e-06
+prometheus_target_sync_length_seconds{scrape_job="rabbitmq",quantile="0.5"} 1.0568e-05
+prometheus_target_sync_length_seconds{scrape_job="rabbitmq",quantile="0.9"} 3.5109e-05
+prometheus_target_sync_length_seconds{scrape_job="rabbitmq",quantile="0.99"} 4.0919e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="rabbitmq"} 0.004605189
+prometheus_target_sync_length_seconds_count{scrape_job="rabbitmq"} 220
+prometheus_target_sync_length_seconds{scrape_job="snmp-exporter",quantile="0.01"} 8.001e-06
+prometheus_target_sync_length_seconds{scrape_job="snmp-exporter",quantile="0.05"} 8.001e-06
+prometheus_target_sync_length_seconds{scrape_job="snmp-exporter",quantile="0.5"} 9.7e-06
+prometheus_target_sync_length_seconds{scrape_job="snmp-exporter",quantile="0.9"} 1.6524e-05
+prometheus_target_sync_length_seconds{scrape_job="snmp-exporter",quantile="0.99"} 1.6756e-05
+prometheus_target_sync_length_seconds_sum{scrape_job="snmp-exporter"} 0.004188418999999998
+prometheus_target_sync_length_seconds_count{scrape_job="snmp-exporter"} 220
+# HELP prometheus_treecache_watcher_goroutines The current number of watcher goroutines.
+# TYPE prometheus_treecache_watcher_goroutines gauge
+prometheus_treecache_watcher_goroutines 0
+# HELP prometheus_treecache_zookeeper_failures_total The total number of ZooKeeper failures.
+# TYPE prometheus_treecache_zookeeper_failures_total counter
+prometheus_treecache_zookeeper_failures_total 0
+# HELP prometheus_tsdb_blocks_loaded Number of currently loaded data blocks
+# TYPE prometheus_tsdb_blocks_loaded gauge
+prometheus_tsdb_blocks_loaded 14
+# HELP prometheus_tsdb_checkpoint_creations_failed_total Total number of checkpoint creations that failed.
+# TYPE prometheus_tsdb_checkpoint_creations_failed_total counter
+prometheus_tsdb_checkpoint_creations_failed_total 0
+# HELP prometheus_tsdb_checkpoint_creations_total Total number of checkpoint creations attempted.
+# TYPE prometheus_tsdb_checkpoint_creations_total counter
+prometheus_tsdb_checkpoint_creations_total 0
+# HELP prometheus_tsdb_checkpoint_deletions_failed_total Total number of checkpoint deletions that failed.
+# TYPE prometheus_tsdb_checkpoint_deletions_failed_total counter
+prometheus_tsdb_checkpoint_deletions_failed_total 0
+# HELP prometheus_tsdb_checkpoint_deletions_total Total number of checkpoint deletions attempted.
+# TYPE prometheus_tsdb_checkpoint_deletions_total counter
+prometheus_tsdb_checkpoint_deletions_total 0
+# HELP prometheus_tsdb_compaction_chunk_range_seconds Final time range of chunks on their first compaction
+# TYPE prometheus_tsdb_compaction_chunk_range_seconds histogram
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="100"} 0
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="400"} 0
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="1600"} 0
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="6400"} 0
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="25600"} 1
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="102400"} 80
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="409600"} 80
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="1.6384e+06"} 12156
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="6.5536e+06"} 36240
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="2.62144e+07"} 36240
+prometheus_tsdb_compaction_chunk_range_seconds_bucket{le="+Inf"} 36240
+prometheus_tsdb_compaction_chunk_range_seconds_sum 5.4175770016e+10
+prometheus_tsdb_compaction_chunk_range_seconds_count 36240
+# HELP prometheus_tsdb_compaction_chunk_samples Final number of samples on their first compaction
+# TYPE prometheus_tsdb_compaction_chunk_samples histogram
+prometheus_tsdb_compaction_chunk_samples_bucket{le="4"} 2
+prometheus_tsdb_compaction_chunk_samples_bucket{le="6"} 80
+prometheus_tsdb_compaction_chunk_samples_bucket{le="9"} 80
+prometheus_tsdb_compaction_chunk_samples_bucket{le="13.5"} 80
+prometheus_tsdb_compaction_chunk_samples_bucket{le="20.25"} 80
+prometheus_tsdb_compaction_chunk_samples_bucket{le="30.375"} 80
+prometheus_tsdb_compaction_chunk_samples_bucket{le="45.5625"} 80
+prometheus_tsdb_compaction_chunk_samples_bucket{le="68.34375"} 12120
+prometheus_tsdb_compaction_chunk_samples_bucket{le="102.515625"} 12133
+prometheus_tsdb_compaction_chunk_samples_bucket{le="153.7734375"} 36240
+prometheus_tsdb_compaction_chunk_samples_bucket{le="230.66015625"} 36240
+prometheus_tsdb_compaction_chunk_samples_bucket{le="345.990234375"} 36240
+prometheus_tsdb_compaction_chunk_samples_bucket{le="+Inf"} 36240
+prometheus_tsdb_compaction_chunk_samples_sum 3.64842e+06
+prometheus_tsdb_compaction_chunk_samples_count 36240
+# HELP prometheus_tsdb_compaction_chunk_size_bytes Final size of chunks on their first compaction
+# TYPE prometheus_tsdb_compaction_chunk_size_bytes histogram
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="32"} 78
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="48"} 26655
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="72"} 31254
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="108"} 32502
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="162"} 33369
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="243"} 34475
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="364.5"} 34967
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="546.75"} 35540
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="820.125"} 36010
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="1230.1875"} 36240
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="1845.28125"} 36240
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="2767.921875"} 36240
+prometheus_tsdb_compaction_chunk_size_bytes_bucket{le="+Inf"} 36240
+prometheus_tsdb_compaction_chunk_size_bytes_sum 2.795207e+06
+prometheus_tsdb_compaction_chunk_size_bytes_count 36240
+# HELP prometheus_tsdb_compaction_duration_seconds Duration of compaction runs
+# TYPE prometheus_tsdb_compaction_duration_seconds histogram
+prometheus_tsdb_compaction_duration_seconds_bucket{le="1"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="2"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="4"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="8"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="16"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="32"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="64"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="128"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="256"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="512"} 61
+prometheus_tsdb_compaction_duration_seconds_bucket{le="+Inf"} 61
+prometheus_tsdb_compaction_duration_seconds_sum 5.728487811
+prometheus_tsdb_compaction_duration_seconds_count 61
+# HELP prometheus_tsdb_compactions_failed_total Total number of compactions that failed for the partition.
+# TYPE prometheus_tsdb_compactions_failed_total counter
+prometheus_tsdb_compactions_failed_total 0
+# HELP prometheus_tsdb_compactions_total Total number of compactions that were executed for the partition.
+# TYPE prometheus_tsdb_compactions_total counter
+prometheus_tsdb_compactions_total 61
+# HELP prometheus_tsdb_compactions_triggered_total Total number of triggered compactions for the partition.
+# TYPE prometheus_tsdb_compactions_triggered_total counter
+prometheus_tsdb_compactions_triggered_total 112
+# HELP prometheus_tsdb_head_active_appenders Number of currently active appender transactions
+# TYPE prometheus_tsdb_head_active_appenders gauge
+prometheus_tsdb_head_active_appenders 0
+# HELP prometheus_tsdb_head_chunks Total number of chunks in the head block.
+# TYPE prometheus_tsdb_head_chunks gauge
+prometheus_tsdb_head_chunks 65367
+# HELP prometheus_tsdb_head_chunks_created_total Total number of chunks created in the head
+# TYPE prometheus_tsdb_head_chunks_created_total counter
+prometheus_tsdb_head_chunks_created_total 101607
+# HELP prometheus_tsdb_head_chunks_removed_total Total number of chunks removed in the head
+# TYPE prometheus_tsdb_head_chunks_removed_total counter
+prometheus_tsdb_head_chunks_removed_total 36240
+# HELP prometheus_tsdb_head_gc_duration_seconds Runtime of garbage collection in the head block.
+# TYPE prometheus_tsdb_head_gc_duration_seconds summary
+prometheus_tsdb_head_gc_duration_seconds{quantile="0.5"} NaN
+prometheus_tsdb_head_gc_duration_seconds{quantile="0.9"} NaN
+prometheus_tsdb_head_gc_duration_seconds{quantile="0.99"} NaN
+prometheus_tsdb_head_gc_duration_seconds_sum 0.397118641
+prometheus_tsdb_head_gc_duration_seconds_count 61
+# HELP prometheus_tsdb_head_max_time Maximum timestamp of the head block.
+# TYPE prometheus_tsdb_head_max_time gauge
+prometheus_tsdb_head_max_time 1.547468393787e+12
+# HELP prometheus_tsdb_head_min_time Minimum time bound of the head block.
+# TYPE prometheus_tsdb_head_min_time gauge
+prometheus_tsdb_head_min_time 1.54746e+12
+# HELP prometheus_tsdb_head_samples_appended_total Total number of appended samples.
+# TYPE prometheus_tsdb_head_samples_appended_total counter
+prometheus_tsdb_head_samples_appended_total 7.186006e+06
+# HELP prometheus_tsdb_head_series Total number of series in the head block.
+# TYPE prometheus_tsdb_head_series gauge
+prometheus_tsdb_head_series 16399
+# HELP prometheus_tsdb_head_series_created_total Total number of series created in the head
+# TYPE prometheus_tsdb_head_series_created_total counter
+prometheus_tsdb_head_series_created_total 28030
+# HELP prometheus_tsdb_head_series_not_found_total Total number of requests for series that were not found.
+# TYPE prometheus_tsdb_head_series_not_found_total counter
+prometheus_tsdb_head_series_not_found_total 0
+# HELP prometheus_tsdb_head_series_removed_total Total number of series removed in the head
+# TYPE prometheus_tsdb_head_series_removed_total counter
+prometheus_tsdb_head_series_removed_total 11631
+# HELP prometheus_tsdb_head_truncations_failed_total Total number of head truncations that failed.
+# TYPE prometheus_tsdb_head_truncations_failed_total counter
+prometheus_tsdb_head_truncations_failed_total 0
+# HELP prometheus_tsdb_head_truncations_total Total number of head truncations attempted.
+# TYPE prometheus_tsdb_head_truncations_total counter
+prometheus_tsdb_head_truncations_total 61
+# HELP prometheus_tsdb_lowest_timestamp Lowest timestamp value stored in the database.
+# TYPE prometheus_tsdb_lowest_timestamp gauge
+prometheus_tsdb_lowest_timestamp 1.5473592e+12
+# HELP prometheus_tsdb_reloads_failures_total Number of times the database failed to reload block data from disk.
+# TYPE prometheus_tsdb_reloads_failures_total counter
+prometheus_tsdb_reloads_failures_total 0
+# HELP prometheus_tsdb_reloads_total Number of times the database reloaded block data from disk.
+# TYPE prometheus_tsdb_reloads_total counter
+prometheus_tsdb_reloads_total 62
+# HELP prometheus_tsdb_retention_cutoffs_failures_total Number of times the database failed to cut off block data from disk.
+# TYPE prometheus_tsdb_retention_cutoffs_failures_total counter
+prometheus_tsdb_retention_cutoffs_failures_total 0
+# HELP prometheus_tsdb_retention_cutoffs_total Number of times the database cut off block data from disk.
+# TYPE prometheus_tsdb_retention_cutoffs_total counter
+prometheus_tsdb_retention_cutoffs_total 0
+# HELP prometheus_tsdb_symbol_table_size_bytes Size of symbol table on disk (in bytes)
+# TYPE prometheus_tsdb_symbol_table_size_bytes gauge
+prometheus_tsdb_symbol_table_size_bytes 356789
+# HELP prometheus_tsdb_tombstone_cleanup_seconds The time taken to recompact blocks to remove tombstones.
+# TYPE prometheus_tsdb_tombstone_cleanup_seconds histogram
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.005"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.01"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.025"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.05"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.1"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.25"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="0.5"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="1"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="2.5"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="5"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="10"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_bucket{le="+Inf"} 0
+prometheus_tsdb_tombstone_cleanup_seconds_sum 0
+prometheus_tsdb_tombstone_cleanup_seconds_count 0
+# HELP prometheus_tsdb_wal_completed_pages_total Total number of completed pages.
+# TYPE prometheus_tsdb_wal_completed_pages_total counter
+prometheus_tsdb_wal_completed_pages_total 2507
+# HELP prometheus_tsdb_wal_fsync_duration_seconds Duration of WAL fsync.
+# TYPE prometheus_tsdb_wal_fsync_duration_seconds summary
+prometheus_tsdb_wal_fsync_duration_seconds{quantile="0.5"} NaN
+prometheus_tsdb_wal_fsync_duration_seconds{quantile="0.9"} NaN
+prometheus_tsdb_wal_fsync_duration_seconds{quantile="0.99"} NaN
+prometheus_tsdb_wal_fsync_duration_seconds_sum 0
+prometheus_tsdb_wal_fsync_duration_seconds_count 0
+# HELP prometheus_tsdb_wal_page_flushes_total Total number of page flushes.
+# TYPE prometheus_tsdb_wal_page_flushes_total counter
+prometheus_tsdb_wal_page_flushes_total 22763
+# HELP prometheus_tsdb_wal_truncate_duration_seconds Duration of WAL truncation.
+# TYPE prometheus_tsdb_wal_truncate_duration_seconds summary
+prometheus_tsdb_wal_truncate_duration_seconds{quantile="0.5"} NaN
+prometheus_tsdb_wal_truncate_duration_seconds{quantile="0.9"} NaN
+prometheus_tsdb_wal_truncate_duration_seconds{quantile="0.99"} NaN
+prometheus_tsdb_wal_truncate_duration_seconds_sum 0
+prometheus_tsdb_wal_truncate_duration_seconds_count 0
+# HELP prometheus_tsdb_wal_truncations_failed_total Total number of WAL truncations that failed.
+# TYPE prometheus_tsdb_wal_truncations_failed_total counter
+prometheus_tsdb_wal_truncations_failed_total 0
+# HELP prometheus_tsdb_wal_truncations_total Total number of WAL truncations attempted.
+# TYPE prometheus_tsdb_wal_truncations_total counter
+prometheus_tsdb_wal_truncations_total 0
+# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.
+# TYPE promhttp_metric_handler_requests_in_flight gauge
+promhttp_metric_handler_requests_in_flight 1
+# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.
+# TYPE promhttp_metric_handler_requests_total counter
+promhttp_metric_handler_requests_total{code="200"} 440
+promhttp_metric_handler_requests_total{code="500"} 0
+promhttp_metric_handler_requests_total{code="503"} 0

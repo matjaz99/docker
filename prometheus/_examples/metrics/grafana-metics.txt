@@ -1,0 +1,360 @@
+# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 3.5809e-05
+go_gc_duration_seconds{quantile="0.25"} 7.7992e-05
+go_gc_duration_seconds{quantile="0.5"} 8.9505e-05
+go_gc_duration_seconds{quantile="0.75"} 0.000111554
+go_gc_duration_seconds{quantile="1"} 0.000643356
+go_gc_duration_seconds_sum 0.009345617
+go_gc_duration_seconds_count 84
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 69
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.11"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 1.0667728e+07
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 3.03325416e+08
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.579724e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 3.24704e+06
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 9.177804414128016e-06
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 2.392064e+06
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 1.0667728e+07
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 5.2641792e+07
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 1.3418496e+07
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 99885
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 4.8316416e+07
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 6.6060288e+07
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.5474692092813714e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 0
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 3.346925e+06
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 6912
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 172216
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 229376
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 1.6700528e+07
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 957996
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 1.048576e+06
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 1.048576e+06
+# HELP go_memstats_sys_bytes Number of bytes obtained from system.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 7.2284408e+07
+# HELP go_threads Number of OS threads created.
+# TYPE go_threads gauge
+go_threads 14
+# HELP grafana_alerting_active_alerts amount of active alerts
+# TYPE grafana_alerting_active_alerts gauge
+grafana_alerting_active_alerts 0
+# HELP grafana_alerting_execution_time_milliseconds summary of alert exeuction duration
+# TYPE grafana_alerting_execution_time_milliseconds summary
+grafana_alerting_execution_time_milliseconds{quantile="0.5"} NaN
+grafana_alerting_execution_time_milliseconds{quantile="0.9"} NaN
+grafana_alerting_execution_time_milliseconds{quantile="0.99"} NaN
+grafana_alerting_execution_time_milliseconds_sum 682
+grafana_alerting_execution_time_milliseconds_count 310
+# HELP grafana_alerting_result_total alert execution result counter
+# TYPE grafana_alerting_result_total counter
+grafana_alerting_result_total{state="no_data"} 310
+# HELP grafana_api_admin_user_created_total api admin user created counter
+# TYPE grafana_api_admin_user_created_total counter
+grafana_api_admin_user_created_total 0
+# HELP grafana_api_dashboard_get_milliseconds summary for dashboard get duration
+# TYPE grafana_api_dashboard_get_milliseconds summary
+grafana_api_dashboard_get_milliseconds{quantile="0.5"} 96
+grafana_api_dashboard_get_milliseconds{quantile="0.9"} 96
+grafana_api_dashboard_get_milliseconds{quantile="0.99"} 96
+grafana_api_dashboard_get_milliseconds_sum 464
+grafana_api_dashboard_get_milliseconds_count 20
+# HELP grafana_api_dashboard_save_milliseconds summary for dashboard save duration
+# TYPE grafana_api_dashboard_save_milliseconds summary
+grafana_api_dashboard_save_milliseconds{quantile="0.5"} 35
+grafana_api_dashboard_save_milliseconds{quantile="0.9"} 35
+grafana_api_dashboard_save_milliseconds{quantile="0.99"} 35
+grafana_api_dashboard_save_milliseconds_sum 186
+grafana_api_dashboard_save_milliseconds_count 5
+# HELP grafana_api_dashboard_search_milliseconds summary for dashboard search duration
+# TYPE grafana_api_dashboard_search_milliseconds summary
+grafana_api_dashboard_search_milliseconds{quantile="0.5"} 7
+grafana_api_dashboard_search_milliseconds{quantile="0.9"} 38
+grafana_api_dashboard_search_milliseconds{quantile="0.99"} 52
+grafana_api_dashboard_search_milliseconds_sum 4861
+grafana_api_dashboard_search_milliseconds_count 151
+# HELP grafana_api_dashboard_snapshot_create_total dashboard snapshots created
+# TYPE grafana_api_dashboard_snapshot_create_total counter
+grafana_api_dashboard_snapshot_create_total 0
+# HELP grafana_api_dashboard_snapshot_external_total external dashboard snapshots created
+# TYPE grafana_api_dashboard_snapshot_external_total counter
+grafana_api_dashboard_snapshot_external_total 0
+# HELP grafana_api_dashboard_snapshot_get_total loaded dashboards
+# TYPE grafana_api_dashboard_snapshot_get_total counter
+grafana_api_dashboard_snapshot_get_total 0
+# HELP grafana_api_dataproxy_request_all_milliseconds summary for dataproxy request duration
+# TYPE grafana_api_dataproxy_request_all_milliseconds summary
+grafana_api_dataproxy_request_all_milliseconds{quantile="0.5"} 12
+grafana_api_dataproxy_request_all_milliseconds{quantile="0.9"} 80
+grafana_api_dataproxy_request_all_milliseconds{quantile="0.99"} 219
+grafana_api_dataproxy_request_all_milliseconds_sum 141650
+grafana_api_dataproxy_request_all_milliseconds_count 2270
+# HELP grafana_api_login_oauth_total api login oauth counter
+# TYPE grafana_api_login_oauth_total counter
+grafana_api_login_oauth_total 0
+# HELP grafana_api_login_post_total api login post counter
+# TYPE grafana_api_login_post_total counter
+grafana_api_login_post_total 0
+# HELP grafana_api_models_dashboard_insert_total dashboards inserted 
+# TYPE grafana_api_models_dashboard_insert_total counter
+grafana_api_models_dashboard_insert_total 6
+# HELP grafana_api_org_create_total api org created counter
+# TYPE grafana_api_org_create_total counter
+grafana_api_org_create_total 0
+# HELP grafana_api_response_status_total api http response status
+# TYPE grafana_api_response_status_total counter
+grafana_api_response_status_total{code="200"} 336
+grafana_api_response_status_total{code="404"} 6
+grafana_api_response_status_total{code="500"} 0
+grafana_api_response_status_total{code="unknown"} 0
+# HELP grafana_api_user_signup_completed_total amount of users who completed the signup flow
+# TYPE grafana_api_user_signup_completed_total counter
+grafana_api_user_signup_completed_total 0
+# HELP grafana_api_user_signup_invite_total amount of users who have been invited
+# TYPE grafana_api_user_signup_invite_total counter
+grafana_api_user_signup_invite_total 0
+# HELP grafana_api_user_signup_started_total amount of users who started the signup flow
+# TYPE grafana_api_user_signup_started_total counter
+grafana_api_user_signup_started_total 0
+# HELP grafana_aws_cloudwatch_get_metric_data_total counter for getting metric data time series from aws
+# TYPE grafana_aws_cloudwatch_get_metric_data_total counter
+grafana_aws_cloudwatch_get_metric_data_total 0
+# HELP grafana_aws_cloudwatch_get_metric_statistics_total counter for getting metric statistics from aws
+# TYPE grafana_aws_cloudwatch_get_metric_statistics_total counter
+grafana_aws_cloudwatch_get_metric_statistics_total 0
+# HELP grafana_aws_cloudwatch_list_metrics_total counter for getting list of metrics from aws
+# TYPE grafana_aws_cloudwatch_list_metrics_total counter
+grafana_aws_cloudwatch_list_metrics_total 0
+# HELP grafana_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which Grafana was built.
+# TYPE grafana_build_info gauge
+grafana_build_info{branch="HEAD",goversion="go1.11",revision="d812109",version="5.4.2"} 1
+# HELP grafana_db_datasource_query_by_id_total counter for getting datasource by id
+# TYPE grafana_db_datasource_query_by_id_total counter
+grafana_db_datasource_query_by_id_total 480
+# HELP grafana_info Information about the Grafana. This metric is deprecated. please use `grafana_build_info`
+# TYPE grafana_info gauge
+grafana_info{version="5.4.2"} 1
+# HELP grafana_instance_start_total counter for started instances
+# TYPE grafana_instance_start_total counter
+grafana_instance_start_total 1
+# HELP grafana_page_response_status_total page http response status
+# TYPE grafana_page_response_status_total counter
+grafana_page_response_status_total{code="200"} 4
+grafana_page_response_status_total{code="404"} 0
+grafana_page_response_status_total{code="500"} 0
+grafana_page_response_status_total{code="unknown"} 2
+# HELP grafana_proxy_response_status_total proxy http response status
+# TYPE grafana_proxy_response_status_total counter
+grafana_proxy_response_status_total{code="200"} 2260
+grafana_proxy_response_status_total{code="404"} 0
+grafana_proxy_response_status_total{code="500"} 0
+grafana_proxy_response_status_total{code="unknown"} 10
+# HELP grafana_stat_active_users number of active users
+# TYPE grafana_stat_active_users gauge
+grafana_stat_active_users 1
+# HELP grafana_stat_total_orgs total amount of orgs
+# TYPE grafana_stat_total_orgs gauge
+grafana_stat_total_orgs 1
+# HELP grafana_stat_total_playlists total amount of playlists
+# TYPE grafana_stat_total_playlists gauge
+grafana_stat_total_playlists 0
+# HELP grafana_stat_total_users total amount of users
+# TYPE grafana_stat_total_users gauge
+grafana_stat_total_users 1
+# HELP grafana_stat_totals_dashboard total amount of dashboards
+# TYPE grafana_stat_totals_dashboard gauge
+grafana_stat_totals_dashboard 14
+# HELP http_request_duration_milliseconds http request summary
+# TYPE http_request_duration_milliseconds summary
+http_request_duration_milliseconds{handler="/",method="get",statuscode="200",quantile="0.5"} 3
+http_request_duration_milliseconds{handler="/",method="get",statuscode="200",quantile="0.9"} 3
+http_request_duration_milliseconds{handler="/",method="get",statuscode="200",quantile="0.99"} 3
+http_request_duration_milliseconds_sum{handler="/",method="get",statuscode="200"} 13
+http_request_duration_milliseconds_count{handler="/",method="get",statuscode="200"} 5
+http_request_duration_milliseconds{handler="/",method="get",statuscode="302",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/",method="get",statuscode="302",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/",method="get",statuscode="302",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/",method="get",statuscode="302"} 0
+http_request_duration_milliseconds_count{handler="/",method="get",statuscode="302"} 1
+http_request_duration_milliseconds{handler="/",method="post",statuscode="200",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/",method="post",statuscode="200",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/",method="post",statuscode="200",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/",method="post",statuscode="200"} 28
+http_request_duration_milliseconds_count{handler="/",method="post",statuscode="200"} 1
+http_request_duration_milliseconds{handler="/annotations",method="get",statuscode="200",quantile="0.5"} 1
+http_request_duration_milliseconds{handler="/annotations",method="get",statuscode="200",quantile="0.9"} 1
+http_request_duration_milliseconds{handler="/annotations",method="get",statuscode="200",quantile="0.99"} 1
+http_request_duration_milliseconds_sum{handler="/annotations",method="get",statuscode="200"} 114
+http_request_duration_milliseconds_count{handler="/annotations",method="get",statuscode="200"} 104
+http_request_duration_milliseconds{handler="/avatar/:hash",method="get",statuscode="200",quantile="0.5"} 36
+http_request_duration_milliseconds{handler="/avatar/:hash",method="get",statuscode="200",quantile="0.9"} 36
+http_request_duration_milliseconds{handler="/avatar/:hash",method="get",statuscode="200",quantile="0.99"} 36
+http_request_duration_milliseconds_sum{handler="/avatar/:hash",method="get",statuscode="200"} 55
+http_request_duration_milliseconds_count{handler="/avatar/:hash",method="get",statuscode="200"} 2
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="200",quantile="0.5"} 1
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="200",quantile="0.9"} 33
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="200",quantile="0.99"} 85
+http_request_duration_milliseconds_sum{handler="/datasources/proxy/:id/*",method="get",statuscode="200"} 16457
+http_request_duration_milliseconds_count{handler="/datasources/proxy/:id/*",method="get",statuscode="200"} 2260
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="400",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="400",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="400",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/datasources/proxy/:id/*",method="get",statuscode="400"} 3
+http_request_duration_milliseconds_count{handler="/datasources/proxy/:id/*",method="get",statuscode="400"} 9
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="502",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="502",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/datasources/proxy/:id/*",method="get",statuscode="502",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/datasources/proxy/:id/*",method="get",statuscode="502"} 0
+http_request_duration_milliseconds_count{handler="/datasources/proxy/:id/*",method="get",statuscode="502"} 1
+http_request_duration_milliseconds{handler="/db",method="post",statuscode="200",quantile="0.5"} 28
+http_request_duration_milliseconds{handler="/db",method="post",statuscode="200",quantile="0.9"} 28
+http_request_duration_milliseconds{handler="/db",method="post",statuscode="200",quantile="0.99"} 28
+http_request_duration_milliseconds_sum{handler="/db",method="post",statuscode="200"} 144
+http_request_duration_milliseconds_count{handler="/db",method="post",statuscode="200"} 5
+http_request_duration_milliseconds{handler="/home",method="get",statuscode="200",quantile="0.5"} 1
+http_request_duration_milliseconds{handler="/home",method="get",statuscode="200",quantile="0.9"} 1
+http_request_duration_milliseconds{handler="/home",method="get",statuscode="200",quantile="0.99"} 1
+http_request_duration_milliseconds_sum{handler="/home",method="get",statuscode="200"} 4
+http_request_duration_milliseconds_count{handler="/home",method="get",statuscode="200"} 5
+http_request_duration_milliseconds{handler="/import",method="post",statuscode="200",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/import",method="post",statuscode="200",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/import",method="post",statuscode="200",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/import",method="post",statuscode="200"} 156
+http_request_duration_milliseconds_count{handler="/import",method="post",statuscode="200"} 5
+http_request_duration_milliseconds{handler="/login",method="get",statuscode="302",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/login",method="get",statuscode="302",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/login",method="get",statuscode="302",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/login",method="get",statuscode="302"} 12
+http_request_duration_milliseconds_count{handler="/login",method="get",statuscode="302"} 1
+http_request_duration_milliseconds{handler="/plugins",method="get",statuscode="200",quantile="0.5"} 0
+http_request_duration_milliseconds{handler="/plugins",method="get",statuscode="200",quantile="0.9"} 0
+http_request_duration_milliseconds{handler="/plugins",method="get",statuscode="200",quantile="0.99"} 0
+http_request_duration_milliseconds_sum{handler="/plugins",method="get",statuscode="200"} 0
+http_request_duration_milliseconds_count{handler="/plugins",method="get",statuscode="200"} 5
+http_request_duration_milliseconds{handler="/search/",method="get",statuscode="200",quantile="0.5"} 1
+http_request_duration_milliseconds{handler="/search/",method="get",statuscode="200",quantile="0.9"} 2
+http_request_duration_milliseconds{handler="/search/",method="get",statuscode="200",quantile="0.99"} 2
+http_request_duration_milliseconds_sum{handler="/search/",method="get",statuscode="200"} 226
+http_request_duration_milliseconds_count{handler="/search/",method="get",statuscode="200"} 151
+http_request_duration_milliseconds{handler="/states-for-dashboard",method="get",statuscode="200",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/states-for-dashboard",method="get",statuscode="200",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/states-for-dashboard",method="get",statuscode="200",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/states-for-dashboard",method="get",statuscode="200"} 1
+http_request_duration_milliseconds_count{handler="/states-for-dashboard",method="get",statuscode="200"} 5
+http_request_duration_milliseconds{handler="/tags",method="get",statuscode="200",quantile="0.5"} 0
+http_request_duration_milliseconds{handler="/tags",method="get",statuscode="200",quantile="0.9"} 1
+http_request_duration_milliseconds{handler="/tags",method="get",statuscode="200",quantile="0.99"} 1
+http_request_duration_milliseconds_sum{handler="/tags",method="get",statuscode="200"} 9
+http_request_duration_milliseconds_count{handler="/tags",method="get",statuscode="200"} 25
+http_request_duration_milliseconds{handler="/uid/:uid",method="delete",statuscode="200",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/uid/:uid",method="delete",statuscode="200",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/uid/:uid",method="delete",statuscode="200",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/uid/:uid",method="delete",statuscode="200"} 73
+http_request_duration_milliseconds_count{handler="/uid/:uid",method="delete",statuscode="200"} 2
+http_request_duration_milliseconds{handler="/uid/:uid",method="get",statuscode="200",quantile="0.5"} 6
+http_request_duration_milliseconds{handler="/uid/:uid",method="get",statuscode="200",quantile="0.9"} 6
+http_request_duration_milliseconds{handler="/uid/:uid",method="get",statuscode="200",quantile="0.99"} 6
+http_request_duration_milliseconds_sum{handler="/uid/:uid",method="get",statuscode="200"} 124
+http_request_duration_milliseconds_count{handler="/uid/:uid",method="get",statuscode="200"} 20
+http_request_duration_milliseconds{handler="/uid/:uid",method="get",statuscode="404",quantile="0.5"} NaN
+http_request_duration_milliseconds{handler="/uid/:uid",method="get",statuscode="404",quantile="0.9"} NaN
+http_request_duration_milliseconds{handler="/uid/:uid",method="get",statuscode="404",quantile="0.99"} NaN
+http_request_duration_milliseconds_sum{handler="/uid/:uid",method="get",statuscode="404"} 3
+http_request_duration_milliseconds_count{handler="/uid/:uid",method="get",statuscode="404"} 6
+http_request_duration_milliseconds{handler="/users",method="get",statuscode="200",quantile="0.5"} 0
+http_request_duration_milliseconds{handler="/users",method="get",statuscode="200",quantile="0.9"} 0
+http_request_duration_milliseconds{handler="/users",method="get",statuscode="200",quantile="0.99"} 0
+http_request_duration_milliseconds_sum{handler="/users",method="get",statuscode="200"} 2
+http_request_duration_milliseconds_count{handler="/users",method="get",statuscode="200"} 5
+# HELP http_request_total http request counter
+# TYPE http_request_total counter
+http_request_total{handler="/",method="get",statuscode="200"} 5
+http_request_total{handler="/",method="get",statuscode="302"} 1
+http_request_total{handler="/",method="post",statuscode="200"} 1
+http_request_total{handler="/annotations",method="get",statuscode="200"} 104
+http_request_total{handler="/avatar/:hash",method="get",statuscode="200"} 2
+http_request_total{handler="/datasources/proxy/:id/*",method="get",statuscode="200"} 2260
+http_request_total{handler="/datasources/proxy/:id/*",method="get",statuscode="400"} 9
+http_request_total{handler="/datasources/proxy/:id/*",method="get",statuscode="502"} 1
+http_request_total{handler="/db",method="post",statuscode="200"} 5
+http_request_total{handler="/home",method="get",statuscode="200"} 5
+http_request_total{handler="/import",method="post",statuscode="200"} 5
+http_request_total{handler="/login",method="get",statuscode="302"} 1
+http_request_total{handler="/plugins",method="get",statuscode="200"} 5
+http_request_total{handler="/search/",method="get",statuscode="200"} 151
+http_request_total{handler="/states-for-dashboard",method="get",statuscode="200"} 5
+http_request_total{handler="/tags",method="get",statuscode="200"} 25
+http_request_total{handler="/uid/:uid",method="delete",statuscode="200"} 2
+http_request_total{handler="/uid/:uid",method="get",statuscode="200"} 20
+http_request_total{handler="/uid/:uid",method="get",statuscode="404"} 6
+http_request_total{handler="/users",method="get",statuscode="200"} 5
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 6.02
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 65536
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 18
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 4.3204608e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.54746179324e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 5.85547776e+08

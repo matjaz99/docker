@@ -1,0 +1,17 @@
+route:
+  receiver: alertmonitor
+  group_by: [alertname]
+  group_wait: 10s
+  group_interval: 5m
+  repeat_interval: 3h
+  routes:
+  - match_re:
+      #alertname: ^(.*)$
+      severity: ^(critical|major|minor|warning|informational)$
+    receiver: alertmonitor
+
+receivers:
+- name: alertmonitor
+  webhook_configs:
+  - url: http://alertmonitor:8080/alertmonitor/webhook
+    send_resolved: true

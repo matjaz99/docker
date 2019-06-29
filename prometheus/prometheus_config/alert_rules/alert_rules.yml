@@ -1,0 +1,399 @@
+groups:
+- name: CPU alerts
+  rules:
+  - alert: CPU usage
+    expr: 100 - (avg(irate(node_cpu_seconds_total{mode="idle"}[1m]) * ON(instance) GROUP_LEFT(node_name)
+      node_meta * 100) BY (node_name)) > 80
+    for: 1m
+    labels:
+      severity: critical
+      priority: high
+      alertdomain: cpu
+      instance: '{{$labels.instance}}'
+      nodename: '{{$labels.node_name}}'
+    annotations:
+      description: Node {{ $labels.node_name }} CPU usage is at {{ humanize $value}}%.
+      summary: CPU alert for Node '{{ $labels.node_name }}'
+  - alert: High Node CPU
+    expr: instance:node_cpu_seconds_total:avg_rate5m > 80
+    for: 1m
+    labels:
+      severity: warning
+      alertdomain: cpu
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: High Node CPU for 1 min
+  - alert: High CPU Usage
+    expr: sum(rate(process_cpu_seconds_total[5m])) by (instance) * 100 > 50
+    for: 5m
+    labels:
+      severity: warning
+      alertdomain: cpu
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: High Node CPU for 5 minutes
+      description: '{{ $labels.instance }} is using a lot of CPU. CPU usage is {{ humanize $value}}%.'
+  - alert: High Load
+    expr: node_load5 > 5
+    for: 5m
+    labels:
+      severity: minor
+      alertdomain: cpu
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: High load on '{{ $labels.instance}}'
+      description: '{{ $labels.instance }} has a high load. Load average is {{ humanize $value}}%.'
+
+- name: Memory alerts
+  rules:
+  - alert: Memory usage
+    expr: sum(((node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes)
+      * ON(instance) GROUP_LEFT(node_name) node_meta * 100) BY (node_name) > 70
+    for: 1m
+    labels:
+      severity: major
+      priority: medium
+      alertdomain: memory
+      instance: '{{$labels.instance}}'
+      nodename: '{{$labels.node_name}}'
+    annotations:
+      description: Node {{ $labels.node_name }} memory usage is at {{ humanize $value}}%.
+      summary: Memory alert for Node '{{ $labels.node_name }}'
+  - alert: High Memory Usage
+    expr: ((node_memory_MemTotal_bytes-node_memory_MemAvailable_bytes)/node_memory_MemTotal_bytes)*100 > 80
+    for: 5m
+    labels:
+      severity: minor
+      alertdomain: memory
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: High memory usage on '{{ $labels.host}}'
+      description: '{{ $labels.instance }} is using a lot of memory. Memory usage is over {{ humanize $value}}%.'
+
+- name: Disk alerts
+  rules:
+  - alert: Disk usage
+    expr: ((node_filesystem_size_bytes{mountpoint="/", fstype="rootfs"} - node_filesystem_free_bytes{mountpoint="/", fstype="rootfs"})
+      * 100 / node_filesystem_size_bytes{mountpoint="/", fstype="rootfs"}) * ON(instance) GROUP_LEFT(node_name)
+      node_meta > 85
+    for: 1m
+    labels:
+      severity: warning
+      priority: medium
+      alertdomain: disk
+      instance: '{{$labels.instance}}'
+      nodename: '{{$labels.node_name}}'
+    annotations:
+      description: Node {{ $labels.node_name }} disk usage is at {{ humanize $value}}%.
+      summary: Disk alert for Node '{{ $labels.node_name }}'
+  - alert: Running Out Of Disk Space
+    expr: (node_filesystem_size{mountpoint="/"} - node_filesystem_free{mountpoint="/"}) * 100/ node_filesystem_size{mountpoint="/"} > 90
+    for: 5m
+    labels:
+      severity: major
+      alertdomain: disk
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: Low disk space '{{ $labels.host}}'
+      description: 'More than 90% of disk used. Disk usage {{ humanize $value}}%.'
+  - alert: Var partition almost full
+    expr: ((node_filesystem_size_bytes{mountpoint="/rootfs/var"} - node_filesystem_free_bytes{mountpoint="/rootfs/var"})
+      * 100 / node_filesystem_size_bytes{mountpoint="/rootfs/var"}) * ON(instance) GROUP_LEFT(node_name)
+      node_meta > 80
+    for: 30m
+    labels:
+      severity: major
+      priority: high
+      alertdomain: disk
+      instance: '{{$labels.instance}}'
+      nodename: '{{$labels.node_name}}'
+    annotations:
+      summary: '/rootfs/var partition almost full on {{ $labels.node_name}}'
+      description: 'var partition used: {{ humanize $value }}%.'
+  - alert: Directory size too big
+    expr: test_directory_size / 1024 / 1024 > 3
+    for: 10m
+    labels:
+      severity: minor
+      priority: high
+      alertdomain: disk
+      nodename: '{{$labels.hostname}}'
+    annotations:
+      summary: 'Directory {{$labels.directory}} is growing over limit'
+      description: '{{$labels.directory}} size: {{ humanize $value}} GB.'
+  - alert: Disk fill rate (6h)
+    expr: predict_linear(node_filesystem_free_bytes{mountpoint="/", fstype="rootfs"}[1h], 6 * 3600) * ON(instance)
+      GROUP_LEFT(node_name) node_meta < 0
+    for: 1h
+    labels:
+      severity: minor
+      priority: low
+      alertdomain: disk
+      instance: '{{$labels.instance}}'
+      nodename: '{{$labels.node_name}}'
+    annotations:
+      description: Node {{ $labels.node_name }} disk is going to fill up in 6h.
+      summary: Disk fill alert for Node '{{ $labels.node_name }}'
+  - alert: Disk Will Fill In 4 Hours
+    expr: predict_linear(node_filesystem_free{mountpoint="/"}[1h], 4*3600) < 0
+    for: 5m
+    labels:
+      severity: major
+      alertdomain: disk
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: Disk on {{$labels.instance}} will fill in approximately 4 hours.
+
+- name: Availability alerts
+  rules:
+  - alert: Exporter Down
+    expr: up == 0
+    for: 10m
+    labels:
+      severity: warning
+      priority: low
+      #instance: '{{$labels.instance}}'
+      alertdomain: exporter
+    annotations:
+      summary: Exporter {{$labels.job}} is down!
+      description: Exporter on {{ $labels.instance }} is not reachable.
+      console: 'Check the Grafana Dashboard at http://grafana:3000'
+  - alert: Node Down
+    expr: up{job=~"node-exporter.+"} == 0
+    for: 1m
+    labels:
+      severity: critical
+      priority: medium
+      #instance: '{{$labels.instance}}'
+      alertdomain: exporter
+    annotations:
+      summary: Exporter {{$labels.job}} is down!
+      description: Exporter on {{ $labels.instance }} is not reachable.
+  - alert: SNMP Not Responding
+    expr: up{job="snmp-exporter"} == 0
+    for: 1m
+    labels:
+      severity: major
+      priority: medium
+      #instance: '{{$labels.instance}}'
+      alertdomain: snmp
+    annotations:
+      summary: Exporter {{$labels.job}} is down!
+      description: Exporter on {{ $labels.instance }} is not reachable.
+  - alert: Docker Down
+    expr: up{job="docker"} == 0
+    for: 5m
+    labels:
+      severity: major
+      priority: low
+      #instance: '{{$labels.instance}}'
+      alertdomain: exporter
+    annotations:
+      summary: Exporter {{$labels.job}} is down!
+      description: Exporter on {{ $labels.instance }} is not reachable.
+  - alert: OpenBaton Down
+    expr: up{job="openbaton"} == 0
+    for: 10m
+    labels:
+      severity: minor
+      priority: low
+      #instance: '{{$labels.instance}}'
+      alertdomain: exporter
+    annotations:
+      summary: Exporter {{$labels.job}} is down!
+      description: Exporter on {{ $labels.instance }} is not reachable.
+  - alert: Application Down
+    expr: up{job=~"dockerbaton|openbaton|dtools|omp3p|pmon|rabbitmq|grafana|cadvisor|pushgateway"} == 0
+    for: 10m
+    labels:
+      severity: minor
+      priority: low
+      #instance: '{{$labels.instance}}'
+      alertdomain: '{{$labels.job}}'
+    annotations:
+      summary: Exporter {{$labels.job}} is down!
+      description: Exporter on {{ $labels.instance }} is not reachable.
+  - alert: All metrics gone
+    expr: absent(up{job="node-exporter"})
+    for: 10s
+    labels:
+      severity: warning
+      alertdomain: exporter
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: No metric for job '{{$labels.job}}' received at all
+      description: OMG...
+  - alert: HTTP Not Responding
+    expr: probe_success{job="blackbox-http"} == 0
+    for: 10m
+    labels:
+      severity: major
+      alertdomain: blackbox-exporter
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "HTTP on {{$labels.instance}} has been down for more than 10 minutes."
+  - alert: SSH Not Responding
+    expr: probe_success{job="blackbox-ssh"} == 0
+    for: 10m
+    labels:
+      severity: major
+      alertdomain: blackbox-exporter
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "SSH on {{$labels.instance}} has been down for more than 10 minutes."
+  - alert: ICMP ping failed
+    expr: probe_success{job="blackbox-icmp"} == 0
+    for: 1m
+    labels:
+      severity: major
+      alertdomain: blackbox-exporter
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "No physical connection to {{$labels.instance}}"
+      description: "{{$labels.instance}} does not reply to ICMP pings"
+  - alert: SSL Cert Expiring Soon
+    expr: (probe_ssl_earliest_cert_expiry{job="blackbox-http"} - time()) / 3600 / 24 < 30
+    for: 1m
+    labels:
+      severity: warning
+      alertdomain: ssl
+      #instance: '{{$labels.instance}}'
+    annotations:
+      summary: SSL cert on '{{$labels.instance}}' will expire soon
+      description: SSL cert will expire in {{ humanize $value}} days
+
+- name: Systemd service alerts
+  rules:
+  - alert: Service Down
+    expr: node_systemd_unit_state{state="active"} != 1
+    for: 1m
+    labels:
+      severity: major
+      priority: medium
+      instance: '{{$labels.instance}}'
+      job: '{{$labels.job}}'
+      alertdomain: systemd
+    annotations:
+      summary: Service {{$labels.name}} on {{$labels.instance}} is not active!
+  - alert: Systemd services not monitored
+    expr: absent(node_systemd_unit_state{job="node-exporter"})
+    for: 10m
+    labels:
+      severity: minor
+      priority: low
+      #instance: '{{$labels.instance}}'
+      job: '{{$labels.job}}'
+      alertdomain: systemd
+    annotations:
+      summary: Systemd services are not monitored!
+
+- name: Prometheus alerts
+  rules:
+  - alert: Prometheus Config Reload Failed
+    expr: prometheus_config_last_reload_successful == 0
+    for: 5m
+    labels:
+      severity: warning
+      priority: medium
+      alertdomain: prometheus
+      instance: '{{$labels.instance}}'
+    annotations:
+      description: Reloading Prometheus configuration has failed on {{$labels.instance}}
+  - alert: No connection to Alertmanager
+    expr: prometheus_notifications_alertmanagers_discovered < 1
+    for: 5m
+    labels:
+      severity: warning
+      priority: medium
+      alertdomain: prometheus
+      instance: '{{$labels.instance}}'
+    annotations:
+      description: Prometheus on {{$labels.instance}} is not connected to any alertmanager.
+  - alert: Too many alerts sent
+    expr: sum(sort_desc(sum_over_time(ALERTS{alertstate="firing"}[1h]))) by (alertname) / 60 / 4 > 100
+    for: 5m
+    labels:
+      severity: warning
+      priority: low
+      alertdomain: prometheus
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: You are alerting too much
+      description: More than 100 alerts '{{$labels.alertname}}' sent in last hour.
+
+- name: Docker alerts
+  rules:
+  - alert: Service has scaled
+    expr: round(delta(my_container_replicas_by_service[1m])) != 0
+    for: 1s
+    labels:
+      severity: informational
+      priority: medium
+      #instance: '{{$labels.instance}}'
+      alertdomain: docker
+    annotations:
+      summary: Service has scaled
+      description: Service {{$labels.container_label_com_docker_swarm_service_name}} has just scaled instances for {{ humanize $value}}
+  - alert: High Cpu Usage On Container
+    expr: sum(rate(container_cpu_usage_seconds_total{container_label_com_docker_swarm_task_name=~".+"}[5m])) by (container_label_com_docker_swarm_task_name,instance) * 100 > 200
+    for: 5m
+    labels:
+      severity: warning
+      alertdomain: docker
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "High CPU usage: TASK '{{ $labels.container_label_com_docker_swarm_task_name }}' on '{{ $labels.instance }}'"
+      description: "{{ $labels.container_label_com_docker_swarm_task_name }} is using a LOT of CPU. CPU usage is {{ humanize $value}}%."
+  - alert: Container Eating Memory
+    expr: sum(container_memory_rss{container_label_com_docker_swarm_task_name=~".+"}) by (instance,name) > 2500000000
+    for: 5m
+    labels:
+      severity: warning
+      alertdomain: docker
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "High memory usage: TASK '{{ $labels.container_label_com_docker_swarm_task_name }}' on '{{ $labels.instance }}'"
+      description: "{{ $labels.container_label_com_docker_swarm_task_name }} is eating up a LOT of memory. Memory consumption of {{ $labels.container_label_com_docker_swarm_task_name }} is at {{ humanize $value}}."
+  - alert: Container Not Running
+    expr: sum(container_tasks_state{state!="running"}) by (container_label_com_docker_stack_namespace) > 0
+    for: 5m
+    labels:
+      severity: minor
+      alertdomain: docker
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "Container not in running state in stack '{{ $labels.container_label_com_docker_swarm_task_name }}' on '{{ $labels.instance }}'"
+      description: "{{ $labels.container_label_com_docker_swarm_task_name }} has a container not in running state on {{ $labels.instance }}"
+  - alert: Missing Node Exporter
+    expr: count(container_last_seen{container_label_com_docker_stack_namespace="monis",container_label_com_docker_swarm_service_name=~".*node.*"}) < count(swarm_node_info)
+    for: 1m
+    labels:
+      severity: warning
+      alertdomain: docker
+      instance: '{{$labels.instance}}'
+    annotations:
+      summary: "A container node exporter is missing"
+      description: "A node-expoter container is not running on a host {{$labels.instance}}"
+  - alert: Swarm node is missing
+    expr: sum(swarm_manager_nodes{state="down"}) by (instance) > 0
+    for: 1h
+    labels:
+      severity: major
+      priority: low
+      alertdomain: docker
+      alertcontext: swarm
+      #instance: '{{$labels.instance}}'
+    annotations:
+      summary: "Swarm node is missing '{{ $labels.instance }}'"
+  - alert: Swarm cluster quorum almost lost
+    expr: sum(swarm_manager_nodes) by (instance) / 2 < sum(swarm_manager_nodes{state!="ready"}) by (instance)
+    for: 1m
+    labels:
+      severity: critical
+      priority: medium
+      alertdomain: docker
+      #instance: '{{$labels.instance}}'
+    annotations:
+      summary: "Too few Swarm managers are alive on '{{ $labels.instance }}'"
+      description: "Swarm cluster will fail if quorum is lost"
+      todo: Check status of nodes in Docker

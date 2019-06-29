@@ -13,7 +13,7 @@ volumes:
 
 configs:
   prometheus_config:
-    file: ./prometheus.yml
+    file: ./prometheus_config/prometheus.yml
 
 services:
 

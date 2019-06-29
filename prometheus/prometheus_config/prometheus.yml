@@ -180,6 +180,9 @@ scrape_configs:
       - targets:
         - localhost
         - 192.168.1.241
+        - 192.168.1.242
+        - 192.168.1.243
+        - 192.168.1.244
         - 172.29.254.66
         - gitlab.iskratel.si
     relabel_configs:
@@ -199,6 +202,9 @@ scrape_configs:
       - targets:
         - localhost
         - 192.168.1.241:22
+        - 192.168.1.242:22
+        - 192.168.1.243:22
+        - 192.168.1.244:22
         - 172.29.254.66:22
         - gitlab.iskratel.si:22
     relabel_configs:

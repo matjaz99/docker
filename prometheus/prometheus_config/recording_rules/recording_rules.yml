@@ -1,0 +1,9 @@
+groups:
+- name: Container recording rules
+  interval: 10s
+  rules:
+  - record: my_container_replicas_by_service
+    expr: count(container_last_seen * on(container_label_com_docker_swarm_node_id) group_left(node_name) min(node_meta) without(instance)) by (container_label_com_docker_swarm_service_name)
+    labels:
+      metric_type: aggregation
+      node_name: '{{ $labels.node_name }}'

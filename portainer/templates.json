@@ -49,6 +49,20 @@
     }
   },
   {
+    "type": 2,
+    "title": "Prometheus Basic",
+    "name": "prom",
+    "description": "Prometheus, Node-exporter, cAdvisor and Grafana",
+    "note": "<h3>Monitoring with Prometheus</h3><br><p></p>",
+    "categories": ["monitoring"],
+    "platform": "linux",
+    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/prometheus_logo.png",
+    "repository": {
+      "url": "https://github.com/matjaz99/docker",
+      "stackfile": "prometheus/compose-prometheus-basic.yml"
+    }
+  },
+  {
     "type": 1,
     "title": "httpd",
     "name": "httpd",
@@ -155,19 +169,6 @@
     "repository": {
       "url": "https://gitlab.iskratel.si/it_mano/ob_docker",
       "stackfile": "docker-compose-ob.yml"
-    }
-  },
-  {
-    "type": 2,
-    "title": "Prometheus Basic",
-    "name": "prom",
-    "description": "Prometheus, Node-exporter, cAdvisor and Grafana",
-    "categories": ["monitoring"],
-    "platform": "linux",
-    "logo": "https://github.com/matjaz99/docker/raw/master/portainer/icons/prometheus_logo.png",
-    "repository": {
-      "url": "https://github.com/matjaz99/docker",
-      "stackfile": "prometheus/compose-prometheus-basic.yml"
     }
   },
   {

@@ -1,0 +1,59 @@
+apiVersion: 1
+
+providers:
+- name: 'docker'
+  orgId: 1
+  folder: 'Docker'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/openbaton'
+- name: 'dockerbaton'
+  orgId: 1
+  folder: 'DockerBaton'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/dockerbaton'
+- name: 'fri'
+  orgId: 1
+  folder: 'FRI'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/fri'
+- name: 'grafana'
+  orgId: 1
+  folder: 'Grafana'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/grafana'
+- name: 'irm'
+  orgId: 1
+  folder: 'IRM'
+  type: 'file'
+  #disableDeletion: false # true - Grafana will delete dashboards in the database if the file is removed
+  #updateIntervalSeconds: 10
+  options:
+    folder: '/var/lib/grafana/dashboards/irm'
+- name: 'my'
+  orgId: 1
+  folder: 'MyDashboards'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/my'
+- name: 'openbaton'
+  orgId: 1
+  folder: 'OpenBaton'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/openbaton'
+- name: 'springboot'
+  orgId: 1
+  folder: 'SpringBoot'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/springboot'
+- name: 'swarm'
+  orgId: 1
+  folder: 'Swarm'
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards/swarm'

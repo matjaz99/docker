@@ -1,0 +1,72 @@
+http://172.29.254.66:9115/probe?target=https://google.com&module=http_2xx&debug=true
+
+
+Logs for the probe:
+ts=2019-01-28T16:21:52.994789895Z caller=main.go:118 module=http_2xx target=https://google.com level=info msg="Beginning probe" probe=http timeout_seconds=9.5
+ts=2019-01-28T16:21:52.994926228Z caller=utils.go:42 module=http_2xx target=https://google.com level=info msg="Resolving target address" preferred_ip_protocol=ip4
+ts=2019-01-28T16:21:53.038898411Z caller=utils.go:65 module=http_2xx target=https://google.com level=info msg="Resolved target address" ip=172.217.23.78
+ts=2019-01-28T16:21:53.038960736Z caller=http.go:281 module=http_2xx target=https://google.com level=info msg="Making HTTP request" url=https://[172.217.23.78] host=google.com
+ts=2019-01-28T16:21:53.251434668Z caller=http.go:237 module=http_2xx target=https://google.com level=info msg="Received redirect" url=https://www.google.com/
+ts=2019-01-28T16:21:53.417795908Z caller=http.go:300 module=http_2xx target=https://google.com level=info msg="Received HTTP response" status_code=200
+ts=2019-01-28T16:21:53.420491225Z caller=http.go:367 module=http_2xx target=https://google.com level=info msg="Response timings for roundtrip" roundtrip=0 start=2019-01-28T16:21:53.039036704Z dnsDone=2019-01-28T16:21:53.039036704Z connectDone=2019-01-28T16:21:53.058143078Z gotConn=2019-01-28T16:21:53.18696558Z responseStart=2019-01-28T16:21:53.251308844Z end=0001-01-01T00:00:00Z
+ts=2019-01-28T16:21:53.420526476Z caller=http.go:367 module=http_2xx target=https://google.com level=info msg="Response timings for roundtrip" roundtrip=1 start=2019-01-28T16:21:53.251565047Z dnsDone=2019-01-28T16:21:53.254285092Z connectDone=2019-01-28T16:21:53.273685551Z gotConn=2019-01-28T16:21:53.329948799Z responseStart=2019-01-28T16:21:53.417702359Z end=2019-01-28T16:21:53.420479702Z
+ts=2019-01-28T16:21:53.420579753Z caller=main.go:129 module=http_2xx target=https://google.com level=info msg="Probe succeeded" duration_seconds=0.425709544
+
+
+
+Metrics that would have been returned:
+# HELP probe_dns_lookup_time_seconds Returns the time taken for probe dns lookup in seconds
+# TYPE probe_dns_lookup_time_seconds gauge
+probe_dns_lookup_time_seconds 0.044000778
+# HELP probe_duration_seconds Returns how long the probe took to complete in seconds
+# TYPE probe_duration_seconds gauge
+probe_duration_seconds 0.425709544
+# HELP probe_failed_due_to_regex Indicates if probe failed due to regex
+# TYPE probe_failed_due_to_regex gauge
+probe_failed_due_to_regex 0
+# HELP probe_http_content_length Length of http content response
+# TYPE probe_http_content_length gauge
+probe_http_content_length -1
+# HELP probe_http_duration_seconds Duration of http request by phase, summed over all redirects
+# TYPE probe_http_duration_seconds gauge
+probe_http_duration_seconds{phase="connect"} 0.038506829
+probe_http_duration_seconds{phase="processing"} 0.15209709999999999
+probe_http_duration_seconds{phase="resolve"} 0.046720832
+probe_http_duration_seconds{phase="tls"} 0.22359264099999998
+probe_http_duration_seconds{phase="transfer"} 0.002777369
+# HELP probe_http_redirects The number of redirects
+# TYPE probe_http_redirects gauge
+probe_http_redirects 1
+# HELP probe_http_ssl Indicates if SSL was used for the final redirect
+# TYPE probe_http_ssl gauge
+probe_http_ssl 1
+# HELP probe_http_status_code Response HTTP status code
+# TYPE probe_http_status_code gauge
+probe_http_status_code 200
+# HELP probe_http_version Returns the version of HTTP of the probe response
+# TYPE probe_http_version gauge
+probe_http_version 1.1
+# HELP probe_ip_protocol Specifies whether probe ip protocol is IP4 or IP6
+# TYPE probe_ip_protocol gauge
+probe_ip_protocol 4
+# HELP probe_ssl_earliest_cert_expiry Returns earliest SSL cert expiry in unixtime
+# TYPE probe_ssl_earliest_cert_expiry gauge
+probe_ssl_earliest_cert_expiry 1.55246502e+09
+# HELP probe_success Displays whether or not the probe was a success
+# TYPE probe_success gauge
+probe_success 1
+
+
+
+Module configuration:
+prober: http
+http:
+  valid_status_codes:
+  - 200
+  - 401
+  valid_http_versions:
+  - HTTP/1.0
+  - HTTP/1.1
+  - HTTP/2
+  preferred_ip_protocol: ip4
+  method: GET
