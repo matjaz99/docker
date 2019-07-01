@@ -159,7 +159,7 @@ groups:
       description: Exporter on {{ $labels.instance }} is not reachable.
       console: 'Check the Grafana Dashboard at http://grafana:3000'
   - alert: Node Down
-    expr: up{job=~"node-exporter.+"} == 0
+    expr: up{job=~"node.+"} == 0
     for: 1m
     labels:
       severity: critical
@@ -213,6 +213,15 @@ groups:
     annotations:
       summary: Exporter {{$labels.job}} is down!
       description: Exporter on {{ $labels.instance }} is not reachable.
+  - alert: Instances Down
+    expr: avg(up{job=~"node.+") BY (job) < 0.75
+    for: 10m
+    labels:
+      severity: major
+      priority: medium
+      alertdomain: '{{$labels.job}}'
+    annotations:
+      summary: More than 25% of instances are down.
   - alert: All metrics gone
     expr: absent(up{job="node-exporter"})
     for: 10s
