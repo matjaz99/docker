@@ -214,7 +214,7 @@ groups:
       summary: Exporter {{$labels.job}} is down!
       description: Exporter on {{ $labels.instance }} is not reachable.
   - alert: Instances Down
-    expr: avg(up{job=~"node.+") BY (job) < 0.75
+    expr: avg(up{job=~"node.+"}) BY (job) < 0.75
     for: 10m
     labels:
       severity: major
