@@ -3,6 +3,10 @@
 # Create new index (aka table):
 # curl -X PUT "localhost:9200/pmon?pretty"
 
+echo "Starting call generator"
+echo "ES_HOST=$ENV_ELASTICSEARCH_HOST"
+echo "ES_PORT=$ENV_ELASTICSEARCH_PORT"
+
 getRandomInRange()
 {
     DIFF=$(($2-$1+1))
@@ -48,8 +52,9 @@ do
     JSON_STRING="{ \"a_sub\": \"$A_NUMBER\", \"b_sub\": \"$B_NUMBER\", \"node_id\": \"$NODE_ID\", \"start_time\": \"$START_TIME\", \"duration\": \"$DURATION\", \"release_cause\": \"$RELEASE_CAUSE\", \"release_cause_txt\": \"$RELEASE_CAUSE_TXT\" }"
     echo $JSON_STRING
 
-    CT="Content-Type: application/json"
-    curl -X POST http://localhost:9200/pmon/_doc?pretty -H "Content-Type: application/json" -d "$JSON_STRING" -vvv
+    curl -X POST http://$ENV_ELASTICSEARCH_HOST:$ENV_ELASTICSEARCH_PORT/pmon/_doc?pretty -H "Content-Type: application/json" -d "$JSON_STRING" -vvv
+
+    echo ""
 
     sleep $(getRandomInRange 5 15)
 done

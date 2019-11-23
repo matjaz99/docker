@@ -2,9 +2,9 @@ version: "3.6"
 
 services:
   generator:
-    image: matjaz99/callGen:1
+    image: matjaz99/callgen:1
     environment:
-      ENV_ELASTICSEARCH_HOST: centos8.home.net
+      ENV_ELASTICSEARCH_HOST: 192.168.1.207
       ENV_ELASTICSEARCH_PORT: 9200
     deploy:
       mode: replicated
