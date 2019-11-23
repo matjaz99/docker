@@ -24,7 +24,7 @@ while [[ true ]]
 do
     A_NUMBER=$(getRandomInRange 100 200)
     B_NUMBER=$(getRandomInRange 800 900)
-    NODE_ID=$(getRandomInRange 1 3)
+    NODE_ID=$(hostname)
     START_TIME=$(date +%s)
     DURATION=$(getRandomInRange 10 4800)
 
@@ -49,7 +49,7 @@ do
         DURATION=0
     fi;
 
-    JSON_STRING="{ \"a_sub\": \"$A_NUMBER\", \"b_sub\": \"$B_NUMBER\", \"node_id\": \"$NODE_ID\", \"start_time\": \"$START_TIME\", \"duration\": \"$DURATION\", \"release_cause\": \"$RELEASE_CAUSE\", \"release_cause_txt\": \"$RELEASE_CAUSE_TXT\" }"
+    JSON_STRING="{ \"a_sub\": \"$A_NUMBER\", \"b_sub\": \"$B_NUMBER\", \"node_id\": \"$NODE_ID\", \"start_time\": $START_TIME, \"duration\": $DURATION, \"release_cause\": $RELEASE_CAUSE, \"release_cause_txt\": \"$RELEASE_CAUSE_TXT\" }"
     echo $JSON_STRING
 
     curl -X POST http://$ENV_ELASTICSEARCH_HOST:$ENV_ELASTICSEARCH_PORT/pmon/_doc?pretty -H "Content-Type: application/json" -d "$JSON_STRING" -vvv
