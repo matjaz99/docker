@@ -1,5 +1,5 @@
 FROM bash:latest
 
-COPY generate.sh /generate.sh
+COPY generateCall.sh /generateCall.sh
 
-CMD sh /generate.sh
+CMD ["sh", "generateCall.sh"]
