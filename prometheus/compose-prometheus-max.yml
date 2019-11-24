@@ -295,11 +295,13 @@ services:
       replicas: 1
 
   alertmonitor:
-    image: matjaz99/alertmonitor:${ALERTMONITOR:-1.0.0}
+    image: matjaz99/alertmonitor:${ALERTMONITOR:-latest}
     ports:
       - 7070:8080
     networks:
       - monitoring-network
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     deploy:
       mode: replicated
       replicas: 1

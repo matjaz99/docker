@@ -71,7 +71,7 @@ do
 
     echo "Generated call: " $JSON_STRING
 
-    curl -X POST http://$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT/pmon/_doc?pretty -H "Content-Type: application/json" -d "$JSON_STRING" -vvv
+    curl -X POST http://$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT/pmon/_doc?pretty -H "Content-Type: application/json" -d "$JSON_STRING" -v
 
     echo ""
 
