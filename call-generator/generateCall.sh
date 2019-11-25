@@ -25,7 +25,7 @@ do
     A_NUMBER=$(getRandomInRange 100 200)
     B_NUMBER=$(getRandomInRange 800 900)
     NODE_ID=$(hostname)
-    NODE_ZONE=$CALLGEN_NODE_ZONE
+    NODE_LOCATION=$CALLGEN_NODE_LOCATION
     START_TIME=$(date +%s)
 
     R=$RANDOM
@@ -67,7 +67,7 @@ do
         DURATION=0
     fi;
 
-    JSON_STRING="{ \"a_sub\": \"$A_NUMBER\", \"b_sub\": \"$B_NUMBER\", \"node_id\": \"$NODE_ID\", \"node_zone\": \"$NODE_ZONE\", \"start_time\": $START_TIME, \"duration\": $DURATION, \"release_cause\": $RELEASE_CAUSE, \"release_cause_txt\": \"$RELEASE_CAUSE_TXT\" }"
+    JSON_STRING="{ \"a_sub\": \"$A_NUMBER\", \"b_sub\": \"$B_NUMBER\", \"node_id\": \"$NODE_ID\", \"node_location\": \"$NODE_LOCATION\", \"start_time\": $START_TIME, \"duration\": $DURATION, \"release_cause\": $RELEASE_CAUSE, \"release_cause_txt\": \"$RELEASE_CAUSE_TXT\" }"
 
     echo "Generated call: " $JSON_STRING
 
