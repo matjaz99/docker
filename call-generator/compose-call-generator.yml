@@ -7,7 +7,7 @@ services:
     environment:
       ELASTICSEARCH_HOST: 192.168.1.207
       ELASTICSEARCH_PORT: 9200
-      CALLGEN_NODE_ZONE: London
+      CALLGEN_NODE_LOCATION: London
       CALLGEN_MAX_INTERVAL: 25
     deploy:
       mode: replicated
@@ -18,7 +18,7 @@ services:
     environment:
       ELASTICSEARCH_HOST: 192.168.1.207
       ELASTICSEARCH_PORT: 9200
-      CALLGEN_NODE_ZONE: Berlin
+      CALLGEN_NODE_LOCATION: Berlin
       CALLGEN_MAX_INTERVAL: 20
     deploy:
       mode: replicated
@@ -29,7 +29,7 @@ services:
     environment:
       ELASTICSEARCH_HOST: 192.168.1.207
       ELASTICSEARCH_PORT: 9200
-      CALLGEN_NODE_ZONE: Moscow
+      CALLGEN_NODE_LOCATION: Moscow
       CALLGEN_MAX_INTERVAL: 15
     deploy:
       mode: replicated
