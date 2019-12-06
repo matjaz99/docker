@@ -1,0 +1,67 @@
+version: "3.6"
+
+services:
+
+  generator-answered:
+    image: matjaz99/call-gen:v2
+    environment:
+      ELASTICSEARCH_HOST: 172.29.6.6
+      ELASTICSEARCH_PORT: 9200
+      CALLGEN_NODE_LOCATION: Moscow
+      CALLGEN_MAX_INTERVAL: 10
+      CALLGEN_CALL_REASON: 1
+    deploy:
+      mode: replicated
+      replicas: 120
+      update_config:
+        parallelism: 3
+        delay: 10s
+        order: start-first
+
+  generator-busy:
+    image: matjaz99/call-gen:v2
+    environment:
+      ELASTICSEARCH_HOST: 172.29.6.6
+      ELASTICSEARCH_PORT: 9200
+      CALLGEN_NODE_LOCATION: Moscow
+      CALLGEN_MAX_INTERVAL: 10
+      CALLGEN_CALL_REASON: 2
+    deploy:
+      mode: replicated
+      replicas: 30
+      update_config:
+        parallelism: 3
+        delay: 10s
+        order: start-first
+
+  generator-noreply:
+    image: matjaz99/call-gen:v2
+    environment:
+      ELASTICSEARCH_HOST: 172.29.6.6
+      ELASTICSEARCH_PORT: 9200
+      CALLGEN_NODE_LOCATION: Moscow
+      CALLGEN_MAX_INTERVAL: 10
+      CALLGEN_CALL_REASON: 3
+    deploy:
+      mode: replicated
+      replicas: 20
+      update_config:
+        parallelism: 3
+        delay: 10s
+        order: start-first
+
+  generator-error:
+    image: matjaz99/call-gen:v2
+    environment:
+      ELASTICSEARCH_HOST: 172.29.6.6
+      ELASTICSEARCH_PORT: 9200
+      CALLGEN_NODE_LOCATION: Moscow
+      CALLGEN_MAX_INTERVAL: 15
+      CALLGEN_CALL_REASON: 4
+    deploy:
+      mode: replicated
+      replicas: 80
+      update_config:
+        parallelism: 3
+        delay: 10s
+        order: start-first

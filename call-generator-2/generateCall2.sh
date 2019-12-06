@@ -14,6 +14,7 @@ getRandomInRange()
     echo $R
 }
 
+
 CRC[1]="Answered"
 CRC[2]="Busy"
 CRC[3]="NoReply"
